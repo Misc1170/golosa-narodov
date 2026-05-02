@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => 'e3a1daf749ef460a20b85b8cdf6a9d8f',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modEvent',
+  'signature' => '6103fa16c496d6c20e277a879d771624',
+  'native_key' => 'OnContextInit',
+  'object' => '{"name":"OnContextInit","service":1,"groupname":"Contexts"}',
+);

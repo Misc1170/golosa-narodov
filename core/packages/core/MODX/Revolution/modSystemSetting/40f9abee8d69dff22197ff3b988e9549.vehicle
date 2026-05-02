@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => 'ebc03a082d60288b474ac5b54c70f342',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '40f9abee8d69dff22197ff3b988e9549',
+  'native_key' => 'mail_dkim_passphrase',
+  'object' => '{"key":"mail_dkim_passphrase","value":"","xtype":"text-password","namespace":"core","area":"mail","editedon":null}',
+);

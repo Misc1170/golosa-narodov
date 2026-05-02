@@ -1,0 +1,10 @@
+  <title>[[*pagetitle]] - [[++site_name]]</title>
+
+  <base href="[[!++site_url]]" />
+  
+  <meta charset="[[++modx_charset]]" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+  <script type="module" src="http://localhost:5173/@vite/client"></script>
+  <link rel="stylesheet" href="http://localhost:5173/assets/css/main.css">

@@ -1,0 +1,11 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_class' => 'xPDO\\Transport\\xPDOObjectVehicle',
+  'guid' => '2bedb8917eca59791b1665d597c6f7dc',
+  'package' => '',
+  'class' => 'MODX\\Revolution\\modSystemSetting',
+  'signature' => '7582ad73e182e78c72896f962523ee8e',
+  'native_key' => 'password_min_length',
+  'object' => '{"key":"password_min_length","value":12,"xtype":"numberfield","namespace":"core","area":"authentication","editedon":null}',
+);

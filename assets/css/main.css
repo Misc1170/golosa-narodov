@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Neris";
+  src: url("/assets/fonts/Neris/Neris-ThinItalic.otf") format("opentype");
+  font-weight: 250;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Neris";
+  src: url("/assets/fonts/Neris/Neris-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neris";
+  src: url("/assets/fonts/Neris/Neris-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BalkaraFreeCondensed";
+  src: url("/assets/fonts/BalkaraFreeCondensed/BalkaraFreeCondensed.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "Neris", sans-serif;
+  background: #021b3a;
+}
+
+nav a {
+  padding: 8px 20px;
+}
+
+nav a:hover {
+  border-radius: 1.5rem;
+  background: #1f384e;
+}
+
+.font-neris {
+  font-family: "Neris", sans-serif;
+}
+
+.font-balkara {
+  font-family: "BalkaraFreeCondensed", sans-serif;
+}
+
+#region-label {
+  position: absolute;
+  background: red;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  pointer-events: auto;
+
+  display: none;
+
+  transform: translate(-100%, -100%);
+}
+
+/* Стили для контента из текстового редактора */
+/* .rich-text-area strong {
+  @apply font-bold text-gray-900;
+} */
+
+/* .rich-text-area em {
+  @apply italic;
+} */
+
+/* .rich-text-area p {
+  @apply mb-2;
+} */
+
+/* Если вы хотите, чтобы строки внутри выглядели как в макете */
+/* .rich-text-area span {
+  @apply block;
+} */
