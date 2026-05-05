@@ -14,3 +14,5 @@
 [2026-05-02 23:05:14] (ERROR @ C:\OSPanel2\domains\golosa_modx\core\src\Revolution\Sources\modFileMediaSource.php : 57) Ошибка инициализации источника «Audio Source»! Unable to create a directory at . mkdir(): Invalid path
 [2026-05-02 23:05:17] (ERROR @ C:\OSPanel2\domains\golosa_modx\core\src\Revolution\Sources\modFileMediaSource.php : 57) Ошибка инициализации источника «Audio Source»! Unable to create a directory at . mkdir(): Invalid path
 [2026-05-02 23:05:21] (ERROR @ C:\OSPanel2\domains\golosa_modx\core\src\Revolution\Sources\modFileMediaSource.php : 57) Ошибка инициализации источника «Audio Source»! Unable to create a directory at . mkdir(): Invalid path
+[2026-05-03 14:00:11] (ERROR @ C:\OSPanel2\domains\golosa_modx\core\src\Revolution\Sources\modFileMediaSource.php : 57) Ошибка инициализации источника «Audio Source»! Unable to create a directory at . mkdir(): Invalid path
+[2026-05-03 14:00:11] (ERROR @ C:\OSPanel2\domains\golosa_modx\core\src\Revolution\Sources\modFileMediaSource.php : 57) Ошибка инициализации источника «Audio Source»! Unable to create a directory at . mkdir(): Invalid path
