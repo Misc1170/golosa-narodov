@@ -25,7 +25,6 @@
   </div>
 </div>
 
-
 <script>
 const initApp = () => {
     // Находим все плееры на странице
@@ -71,8 +70,24 @@ const initApp = () => {
             e.stopPropagation();
             if (audio.paused) {
                 // Останавливаем ВООБЩЕ ВСЕ аудио на странице
-                document.querySelectorAll('audio').forEach(other => {
-                    if (other !== audio) other.pause();
+                 document.querySelectorAll('audio').forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        // Останавливаем звук
+                        otherAudio.pause();
+                        otherAudio.currentTime = 0;
+
+                        // 2. Находим кнопку именно ЭТОГО аудио, чтобы сбросить её цвет
+                        // Ищем ближайшего родителя-контейнера для этого аудио
+                        const otherPlayer = otherAudio.closest('[data-audio-root]');
+                        if (otherPlayer) {
+                            const otherBtn = otherPlayer.querySelector('[data-play-btn]');
+                            if (otherBtn) {
+                                const otherBase = otherBtn.getAttribute('data-base-color');
+                                const otherDark = otherBase.replace('/70', '');
+                                otherBtn.classList.replace(otherDark, otherBase);
+                            }
+                        }
+                    }
                 });
                 audio.play().catch(err => console.log("Ошибка запуска:", err));
             } else {
@@ -91,10 +106,15 @@ const initApp = () => {
 
         // --- ПЕРЕМОТКА (ТОЛЬКО ДЛЯ АКТИВНОГО) ---
         progressArea.addEventListener('click', (e) => {
-            if (audio.paused) return;
-            const rect = progressArea.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            audio.currentTime = (x / rect.width) * audio.duration;
+            // Разрешаем клик, если аудио играет ИЛИ если оно на паузе, но уже было начато
+            if (!audio.paused || audio.currentTime > 0) {
+                const rect = progressArea.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const clickedPercent = x / rect.width;
+                if (audio.duration && !isNaN(audio.duration)) {
+                    audio.currentTime = clickedPercent * audio.duration;
+                }
+            }
         });
 
         // --- ГРОМКОСТЬ (DRAG) ---
@@ -122,10 +142,6 @@ const initApp = () => {
             console.log()
             playIcon.classList.add('hidden');
             pauseIcon.classList.remove('hidden');
-            playerBar.classList.replace('bg-orange-200', 'bg-gray-200');
-            progress.classList.replace('bg-orange-500/30', 'bg-gray-500/50');
-            divider.classList.replace('bg-orange-300', 'bg-gray-400');
-            durationEl.classList.replace('text-orange-700', 'text-gray-600');
             playerBar.parentElement.classList.replace('flex-grow', 'w-[60%]');
             volumeCont.classList.replace('hidden', 'flex');
             progressArea.style.cursor = 'pointer';
@@ -135,13 +151,14 @@ const initApp = () => {
         audio.onpause = () => {
             playIcon.classList.remove('hidden');
             pauseIcon.classList.add('hidden');
-            playerBar.classList.replace('bg-gray-200', 'bg-orange-200');
-            progress.classList.replace('bg-gray-500/50', 'bg-orange-500/30');
-            divider.classList.replace('bg-gray-400', 'bg-orange-300');
-            durationEl.classList.replace('text-gray-600', 'text-orange-700');
             playerBar.parentElement.classList.replace('w-[60%]', 'flex-grow');
             volumeCont.classList.replace('flex', 'hidden');
-            progressArea.style.cursor = 'default';
+            if (audio.currentTime === 0) {
+                progress.style.width = '0%';
+                progressArea.style.cursor = 'default';
+            } else {
+                progressArea.style.cursor = 'pointer';
+            }
         };
 
         audio.ontimeupdate = () => {
