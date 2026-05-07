@@ -1,4 +1,4 @@
-<div class="flex flex-col mx-30">
+<div class="flex flex-col mx-30 my-20">
   <div class="grid grid-cols-12 text-white items-start">
     <div class="flex col-span-5 justify-end items-start flex-shrink-0">
     <!-- <div class="flex col-span-5 justify-end items-center"> -->
@@ -44,6 +44,8 @@ const initApp = () => {
         const volumeCont = player.querySelector('[data-volume-cont]');
         const volumeBar = player.querySelector('[data-volume-bar]');
         const volumeProgress = player.querySelector('[data-volume-progress]');
+        const baseColor = playBtn.getAttribute('data-base-color');
+        const darkBaseColor = baseColor.replace('/70', ''); 
 
         let isDraggingVolume = false;
 
@@ -117,6 +119,7 @@ const initApp = () => {
 
         // --- ВИЗУАЛЬНЫЕ СОСТОЯНИЯ ---
         audio.onplay = () => {
+            console.log()
             playIcon.classList.add('hidden');
             pauseIcon.classList.remove('hidden');
             playerBar.classList.replace('bg-orange-200', 'bg-gray-200');
@@ -126,6 +129,7 @@ const initApp = () => {
             playerBar.parentElement.classList.replace('flex-grow', 'w-[60%]');
             volumeCont.classList.replace('hidden', 'flex');
             progressArea.style.cursor = 'pointer';
+            playBtn.classList.replace(baseColor, darkBaseColor);
         };
 
         audio.onpause = () => {
