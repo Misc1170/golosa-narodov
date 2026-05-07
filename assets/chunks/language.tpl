@@ -26,153 +26,162 @@
 </div>
 
 <script>
-const initApp = () => {
-    // Находим все плееры на странице
-    const allPlayers = Array.from(document.querySelectorAll('[data-audio-root]'));
+(function() {
+    // Глобальная переменная для хранения уровня громкости (от 0 до 1)
+    let globalVolume = 1;
 
-    allPlayers.forEach((player, index) => {
-        const audio = player.querySelector('[data-main-audio]');
-        const playBtn = player.querySelector('[data-play-btn]');
-        const playIcon = player.querySelector('.play-icon');
-        const pauseIcon = player.querySelector('.pause-icon');
-        const progress = player.querySelector('[data-progress]');
-        const progressArea = player.querySelector('[data-progress-area]');
-        const durationEl = player.querySelector('[data-duration]');
-        const playerBar = player.querySelector('[data-player-bar]');
-        const divider = player.querySelector('[data-divider]');
-        const volumeCont = player.querySelector('[data-volume-cont]');
-        const volumeBar = player.querySelector('[data-volume-bar]');
-        const volumeProgress = player.querySelector('[data-volume-progress]');
-        const baseColor = playBtn.getAttribute('data-base-color');
-        const darkBaseColor = baseColor.replace('/70', ''); 
+    const initAudioSystem = () => {
+        const allPlayers = Array.from(document.querySelectorAll('[data-audio-root]'));
 
-        let isDraggingVolume = false;
+        allPlayers.forEach((player, index) => {
+            const audio = player.querySelector('[data-main-audio]');
+            const playBtn = player.querySelector('[data-play-btn]');
+            const playIcon = player.querySelector('.play-icon');
+            const pauseIcon = player.querySelector('.pause-icon');
+            const progress = player.querySelector('[data-progress]');
+            const progressArea = player.querySelector('[data-progress-area]');
+            const durationEl = player.querySelector('[data-duration]');
+            const playerBar = player.querySelector('[data-player-bar]');
+            const volumeCont = player.querySelector('[data-volume-cont]');
+            const volumeBar = player.querySelector('[data-volume-bar]');
+            const volumeProgress = player.querySelector('[data-volume-progress]');
+            const baseColor = playBtn.getAttribute('data-base-color');
+            const darkBaseColor = baseColor.replace('/70', '');
 
-        const formatTime = (s) => {
-            if (!s || isNaN(s)) return '00:00';
-            const min = Math.floor(s / 60);
-            const sec = Math.floor(s % 60);
-            return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-        };
+            let isDraggingVolume = false;
 
-        const updateDuration = () => {
-            if (audio.duration && !isNaN(audio.duration)) {
-                durationEl.textContent = formatTime(audio.duration);
-            }
-        };
+            const formatTime = (s) => {
+                if (!s || isNaN(s)) return '00:00';
+                const min = Math.floor(s / 60);
+                const sec = Math.floor(s % 60);
+                return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+            };
 
-        // Инициализация времени
-        audio.addEventListener('loadedmetadata', updateDuration);
-        if (audio.readyState >= 1) updateDuration();
+            const updateTimeDisplay = () => {
+                if (audio.currentTime > 0) {
+                    durationEl.textContent = formatTime(audio.currentTime);
+                } else {
+                    durationEl.textContent = formatTime(audio.duration);
+                }
+            };
 
-        // --- PLAY / PAUSE ---
-        playBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (audio.paused) {
-                // Останавливаем ВООБЩЕ ВСЕ аудио на странице
-                 document.querySelectorAll('audio').forEach(otherAudio => {
-                    if (otherAudio !== audio) {
-                        // Останавливаем звук
-                        otherAudio.pause();
-                        otherAudio.currentTime = 0;
+            // Функция синхронизации громкости во всех плеерах
+            const syncGlobalVolume = (newVolume) => {
+                globalVolume = newVolume;
+                document.querySelectorAll('[data-audio-root]').forEach(p => {
+                    const a = p.querySelector('[data-main-audio]');
+                    const vProg = p.querySelector('[data-volume-progress]');
+                    if (a) a.volume = globalVolume;
+                    if (vProg) vProg.style.width = `${globalVolume * 100}%`;
+                });
+            };
 
-                        // 2. Находим кнопку именно ЭТОГО аудио, чтобы сбросить её цвет
-                        // Ищем ближайшего родителя-контейнера для этого аудио
-                        const otherPlayer = otherAudio.closest('[data-audio-root]');
-                        if (otherPlayer) {
-                            const otherBtn = otherPlayer.querySelector('[data-play-btn]');
-                            if (otherBtn) {
-                                const otherBase = otherBtn.getAttribute('data-base-color');
-                                const otherDark = otherBase.replace('/70', '');
-                                otherBtn.classList.replace(otherDark, otherBase);
+            audio.addEventListener('loadedmetadata', updateTimeDisplay);
+            if (audio.readyState >= 1) updateTimeDisplay();
+
+            // Устанавливаем начальную громкость при загрузке
+            syncGlobalVolume(globalVolume);
+
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (audio.paused) {
+                    document.querySelectorAll('audio').forEach(otherAudio => {
+                        if (otherAudio !== audio) {
+                            otherAudio.pause();
+                            otherAudio.currentTime = 0;
+                            const otherPlayer = otherAudio.closest('[data-audio-root]');
+                            if (otherPlayer) {
+                                const otherBtn = otherPlayer.querySelector('[data-play-btn]');
+                                const otherDuration = otherPlayer.querySelector('[data-duration]');
+                                if (otherBtn) {
+                                    const otherBase = otherBtn.getAttribute('data-base-color');
+                                    otherBtn.classList.replace(otherBase.replace('/70', ''), otherBase);
+                                }
+                                if (otherAudio.duration) otherDuration.textContent = formatTime(otherAudio.duration);
                             }
                         }
-                    }
-                });
-                audio.play().catch(err => console.log("Ошибка запуска:", err));
-            } else {
-                audio.pause();
-            }
-        });
-
-        // --- АВТОВОСПРОИЗВЕДЕНИЕ СЛЕДУЮЩЕГО ---
-        audio.onended = () => {
-            const next = allPlayers[index + 1];
-            if (next) {
-                const nextBtn = next.querySelector('[data-play-btn]');
-                if (nextBtn) nextBtn.click();
-            }
-        };
-
-        // --- ПЕРЕМОТКА (ТОЛЬКО ДЛЯ АКТИВНОГО) ---
-        progressArea.addEventListener('click', (e) => {
-            // Разрешаем клик, если аудио играет ИЛИ если оно на паузе, но уже было начато
-            if (!audio.paused || audio.currentTime > 0) {
-                const rect = progressArea.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const clickedPercent = x / rect.width;
-                if (audio.duration && !isNaN(audio.duration)) {
-                    audio.currentTime = clickedPercent * audio.duration;
+                    });
+                    audio.play().catch(err => console.log("Ошибка запуска:", err));
+                } else {
+                    audio.pause();
                 }
-            }
-        });
+            });
 
-        // --- ГРОМКОСТЬ (DRAG) ---
-        const moveVolume = (clientX) => {
-            const rect = volumeBar.getBoundingClientRect();
-            let vol = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-            audio.volume = vol;
-            volumeProgress.style.width = `${vol * 100}%`;
-        };
+            audio.onended = () => {
+                const next = allPlayers[index + 1];
+                if (next) {
+                    const nextBtn = next.querySelector('[data-play-btn]');
+                    if (nextBtn) nextBtn.click();
+                }
+            };
 
-        volumeBar.addEventListener('mousedown', (e) => {
-            isDraggingVolume = true;
-            moveVolume(e.clientX);
-            document.body.style.userSelect = 'none';
-        });
+            progressArea.addEventListener('click', (e) => {
+                if (!audio.paused || audio.currentTime > 0) {
+                    const rect = progressArea.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    audio.currentTime = (x / rect.width) * audio.duration;
+                    updateTimeDisplay();
+                }
+            });
 
-        window.addEventListener('mousemove', (e) => { if (isDraggingVolume) moveVolume(e.clientX); });
-        window.addEventListener('mouseup', () => { 
-            isDraggingVolume = false; 
-            document.body.style.userSelect = ''; 
-        });
+            const moveVolume = (clientX) => {
+                const rect = volumeBar.getBoundingClientRect();
+                let vol = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+                syncGlobalVolume(vol); // Вызываем синхронизацию для всех
+            };
 
-        // --- ВИЗУАЛЬНЫЕ СОСТОЯНИЯ ---
-        audio.onplay = () => {
-            console.log()
-            playIcon.classList.add('hidden');
-            pauseIcon.classList.remove('hidden');
-            playerBar.parentElement.classList.replace('flex-grow', 'w-[60%]');
-            volumeCont.classList.replace('hidden', 'flex');
-            progressArea.style.cursor = 'pointer';
-            playBtn.classList.replace(baseColor, darkBaseColor);
-        };
+            volumeBar.addEventListener('mousedown', (e) => {
+                isDraggingVolume = true;
+                moveVolume(e.clientX);
+                document.body.style.userSelect = 'none';
+            });
 
-        audio.onpause = () => {
-            playIcon.classList.remove('hidden');
-            pauseIcon.classList.add('hidden');
-            playerBar.parentElement.classList.replace('w-[60%]', 'flex-grow');
-            volumeCont.classList.replace('flex', 'hidden');
-            if (audio.currentTime === 0) {
-                progress.style.width = '0%';
-                progressArea.style.cursor = 'default';
-            } else {
+            window.addEventListener('mousemove', (e) => { if (isDraggingVolume) moveVolume(e.clientX); });
+            window.addEventListener('mouseup', () => { 
+                isDraggingVolume = false; 
+                document.body.style.userSelect = ''; 
+            });
+
+            audio.onplay = () => {
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                playerBar.parentElement.classList.replace('flex-grow', 'w-[60%]');
+                volumeCont.classList.replace('hidden', 'flex');
                 progressArea.style.cursor = 'pointer';
-            }
-        };
+                playBtn.classList.replace(baseColor, darkBaseColor);
+                // При запуске убеждаемся, что громкость актуальна
+                audio.volume = globalVolume;
+            };
 
-        audio.ontimeupdate = () => {
-            if (audio.duration) {
-                progress.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
-            }
-        };
-    });
-};
+            audio.onpause = () => {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                playerBar.parentElement.classList.replace('w-[60%]', 'flex-grow');
+                volumeCont.classList.replace('flex', 'hidden');
+                
+                if (audio.currentTime === 0) {
+                    progress.style.width = '0%';
+                    progressArea.style.cursor = 'default';
+                    durationEl.textContent = formatTime(audio.duration);
+                } else {
+                    progressArea.style.cursor = 'pointer';
+                    durationEl.textContent = formatTime(audio.currentTime);
+                }
+            };
 
-// Запуск после полной загрузки
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
-} else {
-    initApp();
-}
+            audio.ontimeupdate = () => {
+                if (audio.duration) {
+                    progress.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+                    if (audio.currentTime > 0) durationEl.textContent = formatTime(audio.currentTime);
+                }
+            };
+        });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAudioSystem);
+    } else {
+        initAudioSystem();
+    }
+})();
 </script>
