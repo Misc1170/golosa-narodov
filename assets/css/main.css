@@ -32,7 +32,14 @@
 body {
   margin: 0;
   font-family: "Neris", sans-serif;
-  background: #021b3a;
+  /* background: #021b3a; */
+  background-image: url('/assets/images/general-bg.png');
+  
+  /* Дополнительные настройки, чтобы фон растянулся и не прыгал */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Чтобы фон не скроллился вместе с контентом */
+  background-repeat: no-repeat;
 }
 
 nav a {

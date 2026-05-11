@@ -7,7 +7,7 @@
       <a href="/">ГЛАВНАЯ</a>
       <!-- todo добавить hover для всех ссылок -->
       <a href="[[~3]]">ЯЗЫКИ</a>
-      <a href="#">О ПРОЕКТЕ</a>
+      <a href="[[~10]]">О ПРОЕКТЕ</a>
     </div>
 
     <div class="col-span-2 flex justify-center items-center"></div>
@@ -15,9 +15,9 @@
     <div
       class="col-span-5 flex justify-start items-center gap-x-16 font-neris font-semibold text-lg"
     >
-      <a href="#">КОМАНДА</a>
-      <a href="#">НОВОСТИ</a>
-      <a href="#">КОНТАКТЫ</a>
+      <a href="[[~11]]">КОМАНДА</a>
+      <a href="[[~12]]">НОВОСТИ</a>
+      <a href="[[~13]]">КОНТАКТЫ</a>
     </div>
   </div>
 </nav>

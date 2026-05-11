@@ -1,4 +1,4 @@
-<div class="flex flex-col mx-30 my-20">
+<div class="flex flex-col mx-30 mb-20 mt-10">
   <div class="grid grid-cols-12 text-white items-start">
     <div class="flex col-span-5 justify-end items-start flex-shrink-0">
     <!-- <div class="flex col-span-5 justify-end items-center"> -->
@@ -13,7 +13,7 @@
     <div class="col-span-2"></div>
 
     <div class="col-span-5 ml-10 mt-2">
-      <span class="text-[17px] font-light leading-tight">[[*content:striptags]]</span>
+      <span class="text-[17px] font-light leading-tight text-justify">[[*content:striptags]]</span>
     </div>
   </div>
 
