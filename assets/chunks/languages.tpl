@@ -4,7 +4,7 @@
     <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 
-<div class="flex flex-wrap justify-center gap-24 my-20">
+<div class="flex flex-wrap justify-center gap-8 sm:gap-24 my-10 sm:my-20">
     [[getResources?
         &parents=`[[*id]]`
         &tpl=`languageCard`

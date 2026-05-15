@@ -1,3 +1,5 @@
 /assets/stories/
+.idea/
 /core/cache/
 /node_modules/
+/CLAUDE.md

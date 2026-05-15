@@ -1,6 +1,6 @@
-<a href="[[+uri]]" class="group block">
+<a href="[[+uri]]" class="group block w-full sm:w-auto">
   <div
-    class="w-[270px] rounded-3xl px-2 pt-2 bg-[#CDC3B3] flex flex-col items-center justify-center"
+    class="w-full sm:w-[270px] rounded-3xl px-2 pt-2 bg-[#CDC3B3] flex flex-col items-center justify-center"
   >
     <div
       class="py-4 px-5 w-full rounded-3xl bg-[#1F384E] group-hover:bg-[#CF2D00] flex items-center justify-center text-center h-[75px] mb-3"
