@@ -1,7 +1,9 @@
 <!-- Полоса внизу -->
-<div class="h-0.5 w-full bg-white m-12"></div>
+<div class="max-w-[1440px] mx-auto px-12">
+  <div class="h-0.5 w-full bg-white my-12"></div>
+</div>
 
-<footer class="flex justify-around items-center w-full">
+<footer class="flex justify-around items-center w-full max-w-[1440px] mx-auto px-12 pb-12">
   <div class="flex items-center gap-12">
     <a href="https://фондкультурныхинициатив.ру">
       <svg

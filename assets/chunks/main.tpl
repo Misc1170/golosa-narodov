@@ -71,8 +71,8 @@
         </defs>
       </svg>
     </div>
-    <p class="text-[80px] font-balkara">НАРОДОВ РОССИИ</p>
-    <p class="text-[40px] mt-4 font-neris font-light">ЗВУЧАЩАЯ КАРТА</p>
+    <h1 class="text-[80px] font-balkara">НАРОДОВ РОССИИ</h1>
+    <h2 class="text-[40px] mt-4 font-neris font-light">ЗВУЧАЩАЯ КАРТА</h2>
   </div>
 
   <div class="my-10">

@@ -5,8 +5,8 @@
       <img class="h-[151px] w-[30px]" src="/assets/images/red-arrow-down.png" alt="">
       </svg>
       <div class="flex flex-col ml-10">
-        <span class="uppercase font-bold text-[35px]">[[*pagetitle]]</span>
-        <span class="text-[30px] font-light leading-none">сказки</span>
+        <h1 class="uppercase font-bold text-[35px]">[[*pagetitle]]</h1>
+        <h2 class="text-[30px] font-light leading-none">сказки</h2>
       </div>
     </div>
 

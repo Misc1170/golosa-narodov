@@ -1,6 +1,6 @@
 <div class="flex items-center gap-x-8 text-[#FFB35B]">
        <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
-        <span class="text-[50px] font-balkara">О ПРОЕКТЕ</span>
+        <h1 class="text-[50px] font-balkara">О ПРОЕКТЕ</h1>
         <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 

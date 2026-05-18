@@ -10,7 +10,7 @@
     </div>
     <div class="flex flex-col justify-start items-start text-[20px] font-semibold w-full">
         <div class="py-2 pl-4 rounded-3xl border-1 border-[#FFB35B] flex items-center w-[40%]">
-            <span class="uppercase text-[#EFEADE]">[[+name]]</span>
+            <h2 class="uppercase text-[#EFEADE]">[[+name]]</h2>
         </div>
         <span class="text-white w-[70%]">[[+position]]</span>
     </div>
