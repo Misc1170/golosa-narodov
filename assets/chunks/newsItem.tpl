@@ -1,12 +1,12 @@
 <article
-  class="news-card relative bg-white/5 text-white rounded-xl px-6 pt-6 pb-12 overflow-hidden transition-[max-height] duration-300 ease-in-out"
+  class="news-card relative bg-[#CDC3B3] rounded-xl p-6 overflow-hidden transition-[max-height] duration-300 ease-in-out"
   data-news-card
   style="max-height: 344px;"
 >
-  <div class="flex gap-x-6">
-    <!-- Галерея слева -->
+  <div class="flex gap-x-6 items-start pr-[56px]">
+    <!-- Первая часть: картинка-галерея -->
     <div
-      class="relative shrink-0 w-[280px] h-[280px] rounded-lg overflow-hidden bg-black/20"
+      class="relative shrink-0 w-[280px] h-[280px] rounded-3xl overflow-hidden bg-black/20"
       data-gallery
     >
       [[getImageList?
@@ -32,28 +32,34 @@
       </button>
     </div>
 
-    <!-- Текст справа -->
-    <div class="flex-1 flex flex-col min-w-0">
-      <h2 class="text-2xl font-bold mb-4">[[+title]]</h2>
-      <div class="news-content prose prose-invert max-w-none" data-news-text>
+    <!-- Вторая часть: заголовок, текст и кнопка -->
+    <div class="flex-1 flex flex-col min-w-0 text-[#0F212F]">
+      <h2 class="text-xl font-bold mb-4 break-words">[[+title]]</h2>
+      <!-- Текст: фиксированная высота, затухание снизу через JS-маску -->
+      <div
+        class="news-content prose prose-invert max-w-none h-[196px] overflow-hidden text-[20px] font-semibold break-words"
+        data-news-text
+      >
         [[+content]]
       </div>
+      <!-- Кнопка на новой строке под текстом -->
+      <button
+        type="button"
+        data-toggle-news
+        class="self-start hover:underline font-light cursor-pointer text-xl"
+      >
+        <span data-toggle-collapsed>Читать полностью</span>
+        <span data-toggle-expanded class="hidden">Скрыть</span>
+      </button>
     </div>
+
   </div>
 
-  <!-- Градиент-затухание над свёрнутым текстом -->
-  <div
-    class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#021b3a] via-[#021b3a]/85 to-transparent pointer-events-none rounded-b-xl"
-    data-fade
-  ></div>
-
-  <!-- Кнопка раскрытия/сворачивания -->
-  <button
-    type="button"
-    data-toggle-news
-    class="absolute bottom-3 right-6 z-10 text-[#FFB35B] hover:underline font-semibold text-sm cursor-pointer"
+  <!-- Декоративные треугольники справа -->
+  <img
+    src="/assets/images/news/triangles.png"
+    alt=""
+    aria-hidden="true"
+    class="absolute right-0 top-0 h-[344px] w-auto pointer-events-none select-none"
   >
-    <span data-toggle-collapsed>Читать полностью</span>
-    <span data-toggle-expanded class="hidden">Свернуть</span>
-  </button>
 </article>

@@ -5,7 +5,7 @@
 </div>
 
 <div class="w-full">
-    <div class="flex flex-col gap-y-24 my-20 mx-30">
+    <div class="flex flex-wrap text-center gap-12 my-20 mx-30">
         [[getImageList?
         &tvname=`contacts`
         &tpl=`contact`

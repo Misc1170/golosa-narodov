@@ -16,7 +16,7 @@
     <!-- Пагинация: стрелки + до 10 страниц одновременно -->
     <div
       id="news-pagination"
-      class="flex justify-center items-center gap-x-2 mt-12 font-neris"
+      class="flex justify-start items-center gap-x-2 mt-12 font-neris"
     ></div>
 </div>
 
@@ -37,7 +37,7 @@
       const next = gallery.querySelector('[data-gallery-next]');
 
       if (images.length === 0) {
-        // Нет картинок — скрываем галерею, текст займёт всю ширину
+        // Нет картинок — скрываем галерею
         gallery.style.display = 'none';
       } else {
         let current = 0;
@@ -60,29 +60,47 @@
 
     /* --- Раскрытие/сворачивание текста --- */
     const toggle = card.querySelector('[data-toggle-news]');
-    const fade = card.querySelector('[data-fade]');
     const labelC = card.querySelector('[data-toggle-collapsed]');
     const labelE = card.querySelector('[data-toggle-expanded]');
+    const textEl = card.querySelector('[data-news-text]');
 
-    // Если содержимое вмещается в 344px — кнопка и затухание не нужны
-    const overflows = card.scrollHeight > 344;
+    // Проверяем, переполняется ли текст внутри своего блока
+    const overflows =
+      textEl && textEl.scrollHeight > textEl.clientHeight + 1;
     if (!overflows) {
       if (toggle) toggle.style.display = 'none';
-      if (fade) fade.style.display = 'none';
       return;
     }
-
     if (!toggle) return;
+
+    // Плавное затухание снизу вместо жёсткой обрезки
+    const FADE_MASK = 'linear-gradient(to bottom, black 55%, transparent 100%)';
+    if (textEl) {
+      textEl.style.webkitMaskImage = FADE_MASK;
+      textEl.style.maskImage = FADE_MASK;
+    }
+
     toggle.addEventListener('click', () => {
       const expanded = card.classList.toggle('is-expanded');
       if (expanded) {
+        if (textEl) {
+          textEl.style.height = 'auto';
+          textEl.style.overflow = 'visible';
+          textEl.style.webkitMaskImage = 'none';
+          textEl.style.maskImage = 'none';
+        }
+        // После раскрытия высоты — пересчитываем общую высоту карточки
         card.style.maxHeight = card.scrollHeight + 'px';
-        if (fade) fade.style.display = 'none';
         if (labelC) labelC.classList.add('hidden');
         if (labelE) labelE.classList.remove('hidden');
       } else {
+        if (textEl) {
+          textEl.style.height = '';
+          textEl.style.overflow = '';
+          textEl.style.webkitMaskImage = FADE_MASK;
+          textEl.style.maskImage = FADE_MASK;
+        }
         card.style.maxHeight = '344px';
-        if (fade) fade.style.display = '';
         if (labelC) labelC.classList.remove('hidden');
         if (labelE) labelE.classList.add('hidden');
       }
@@ -107,7 +125,6 @@
   const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
 
   if (totalPages <= 1) {
-    // Если всего одна страница, пагинацию не показываем
     pagEl.style.display = 'none';
     items.forEach((el) => (el.style.display = ''));
     return;
@@ -132,7 +149,7 @@
     b.type = 'button';
     b.innerHTML = html;
     b.className =
-      'min-w-[36px] h-9 px-2 flex items-center justify-center transition-colors text-base cursor-pointer ' +
+      'w-8 h-8 px-2 flex items-center justify-center transition-colors text-base cursor-pointer ' +
       (opts.cls || '');
     if (opts.disabled) {
       b.disabled = true;
@@ -145,10 +162,9 @@
 
   const renderPag = () => {
     pagEl.innerHTML = '';
-    // Стрелка влево
     pagEl.appendChild(
-      makeBtn('&larr;', () => showPage(currentPage - 1), {
-        cls: 'text-white hover:text-[#FFB35B] text-xl',
+      makeBtn('<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><polygon points="10,0 0,8 10,16"/></svg>', () => showPage(currentPage - 1), {
+        cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-lg',
         disabled: currentPage <= 1,
       })
     );
@@ -159,16 +175,15 @@
       pagEl.appendChild(
         makeBtn(String(p), () => showPage(p), {
           cls: active
-            ? 'text-[#FFB35B] font-bold border-b-2 border-[#FFB35B]'
-            : 'text-white hover:text-[#FFB35B]',
+            ? 'text-white font-light bg-[#FFB35B]/50 rounded-lg'
+            : 'text-white font-light bg-[#D9D9D9]/20 rounded-lg',
         })
       );
     }
 
-    // Стрелка вправо
     pagEl.appendChild(
-      makeBtn('&rarr;', () => showPage(currentPage + 1), {
-        cls: 'text-white hover:text-[#FFB35B] text-xl',
+      makeBtn('<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><polygon points="0,0 10,8 0,16"/></svg>', () => showPage(currentPage + 1), {
+        cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-lg',
         disabled: currentPage >= totalPages,
       })
     );
