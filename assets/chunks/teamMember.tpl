@@ -1,5 +1,5 @@
-<div class="flex gap-x-10">
-    <div class="w-[149px] h-[149px]">
+<div class="flex gap-x-5">
+    <div class="w-[157px] h-[157px] shrink-0">
         [[+image:striptags:strip:len:gt=`0`:then=`
             <img src="[[+image]]" alt="[[+name]]" class="w-full h-full rounded-2xl object-cover">
         `:else=`
@@ -8,10 +8,10 @@
             </div>
         `]]
     </div>
-    <div class="flex flex-col justify-start items-start text-[20px] font-semibold w-full">
-        <div class="py-2 pl-4 rounded-3xl border-1 border-[#FFB35B] flex items-center w-[40%]">
+    <div class="flex flex-col justify-start items-start text-xl font-semibold w-full">
+        <div class="py-2 pl-4 rounded-3xl border-1 border-[#FFB35B] flex items-center w-full">
             <h2 class="uppercase text-[#EFEADE]">[[+name]]</h2>
         </div>
-        <span class="text-white w-[70%]">[[+position]]</span>
+        <span class="text-white ml-4">[[+position]]</span>
     </div>
 </div>

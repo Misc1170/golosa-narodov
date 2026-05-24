@@ -164,7 +164,7 @@
     pagEl.innerHTML = '';
     pagEl.appendChild(
       makeBtn('<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><polygon points="10,0 0,8 10,16"/></svg>', () => showPage(currentPage - 1), {
-        cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-lg',
+        cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-md',
         disabled: currentPage <= 1,
       })
     );
@@ -175,15 +175,15 @@
       pagEl.appendChild(
         makeBtn(String(p), () => showPage(p), {
           cls: active
-            ? 'text-white font-light bg-[#FFB35B]/50 rounded-lg'
-            : 'text-white font-light bg-[#D9D9D9]/20 rounded-lg',
+            ? 'text-white font-light bg-[#FFB35B]/50 rounded-md'
+            : 'text-white font-light bg-[#D9D9D9]/20 rounded-md',
         })
       );
     }
 
     pagEl.appendChild(
       makeBtn('<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><polygon points="0,0 10,8 0,16"/></svg>', () => showPage(currentPage + 1), {
-        cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-lg',
+        cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-md',
         disabled: currentPage >= totalPages,
       })
     );

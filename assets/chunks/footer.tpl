@@ -1,6 +1,6 @@
 <!-- Полоса внизу -->
 <div class="max-w-[1440px] mx-auto px-12">
-  <div class="h-0.5 w-full bg-white my-12"></div>
+  <div class="h-0.5 w-full bg-white mb-12"></div>
 </div>
 
 <footer class="flex justify-around items-center w-full max-w-[1440px] mx-auto px-12 pb-12">

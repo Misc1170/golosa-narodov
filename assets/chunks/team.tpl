@@ -5,7 +5,7 @@
 </div>
 
 <div class="w-full">
-    <div class="flex flex-col gap-y-24 my-20 mx-30">
+    <div class="grid grid-cols-2 gap-x-12 gap-y-24 my-20 mx-30">
         [[getImageList?
         &tvname=`team_member`
         &tpl=`teamMember`

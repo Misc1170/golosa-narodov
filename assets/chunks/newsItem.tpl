@@ -34,7 +34,7 @@
 
     <!-- Вторая часть: заголовок, текст и кнопка -->
     <div class="flex-1 flex flex-col min-w-0 text-[#0F212F]">
-      <h2 class="text-xl font-bold mb-4 break-words">[[+title]]</h2>
+      <h2 class="text-xl font-bold mb-4">[[+title]]</h2>
       <!-- Текст: фиксированная высота, затухание снизу через JS-маску -->
       <div
         class="news-content prose prose-invert max-w-none h-[196px] overflow-hidden text-[20px] font-semibold break-words"
