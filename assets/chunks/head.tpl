@@ -1,5 +1,7 @@
   <title>[[*pagetitle]] - [[++site_name]]</title>
 
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
   <base href="[[!++site_url]]" />
   
   <meta charset="[[++modx_charset]]" />
