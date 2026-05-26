@@ -1,4 +1,3 @@
-<!-- header -->
 
 <!-- Десктопная версия (≥1280px) -->
 <nav class="text-white hidden xl:block max-w-[1440px] mx-auto px-12 pt-12">
@@ -7,7 +6,6 @@
       class="col-span-5 flex justify-end items-center gap-x-16 font-neris font-semibold text-lg"
     >
       <a href="/">ГЛАВНАЯ</a>
-      <!-- todo добавить hover для всех ссылок -->
       <a href="[[~3]]">ЯЗЫКИ</a>
       <a href="[[~10]]">О ПРОЕКТЕ</a>
     </div>
@@ -42,12 +40,12 @@
 </div>
 
 <!-- Мобильная/планшетная версия (<1280px) -->
-<!-- Хедер всегда виден, меню выпадает под ним -->
+<!-- Хедер всегда виден, меню разворачивается под ним и не перекрывает крестик/полосу/эмблему -->
 <div class="relative w-full mb-12 xl:hidden">
   <!-- Внутренний контейнер с ограничением ширины и отступами -->
   <div class="max-w-[1440px] mx-auto px-6 pt-12">
     <!-- Видимая строка хедера: бургер + полоса + эмблема -->
-    <div class="relative z-50 grid grid-cols-12 w-full items-center">
+    <div id="mobile-header-bar" class="relative z-50 grid grid-cols-12 w-full items-center">
       <!-- Бургер слева -->
       <div class="col-span-3 flex justify-start items-center">
         <button
@@ -77,19 +75,19 @@
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Выпадающее меню — появляется под хедером, во всю ширину окна -->
-  <div
-    id="mobile-menu"
-    class="hidden absolute top-full left-0 right-0 z-40 bg-[#0F212F]/95 flex-col items-center gap-y-8 py-12 text-white font-neris font-semibold text-2xl"
-  >
-    <a href="/" class="hover:text-[#FFB35B] transition-colors">ГЛАВНАЯ</a>
-    <a href="[[~3]]" class="hover:text-[#FFB35B] transition-colors">ЯЗЫКИ</a>
-    <a href="[[~10]]" class="hover:text-[#FFB35B] transition-colors">О ПРОЕКТЕ</a>
-    <a href="[[~11]]" class="hover:text-[#FFB35B] transition-colors">КОМАНДА</a>
-    <a href="[[~12]]" class="hover:text-[#FFB35B] transition-colors">НОВОСТИ</a>
-    <a href="[[~13]]" class="hover:text-[#FFB35B] transition-colors">КОНТАКТЫ</a>
-  </div>
+<!-- Меню — закрывает всё что ниже строки хедера. JS подставляет inline top = нижняя граница хедер-бара -->
+<div
+  id="mobile-menu"
+  class="hidden xl:hidden fixed left-0 right-0 bottom-0 z-40 bg-[#CDC3B3] flex-col items-start text-black font-neris font-semibold text-2xl"
+  style="top: 0;"
+>
+  <a href="[[~3]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>ЯЗЫКИ</span></a>
+  <a href="[[~10]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>О ПРОЕКТЕ</span></a>
+  <a href="[[~11]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>КОМАНДА</span></a>
+  <a href="[[~12]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>НОВОСТИ</span></a>
+  <a href="[[~13]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>КОНТАКТЫ</span></a>
 </div>
 
 <style>
@@ -113,19 +111,30 @@
   (function () {
     var burgerBtn = document.getElementById('burger-btn');
     var mobileMenu = document.getElementById('mobile-menu');
+    var headerBar = document.getElementById('mobile-header-bar');
     if (!burgerBtn || !mobileMenu) return;
+
+    // Позиционирует верх меню сразу под нижней границей строки хедера
+    function positionMenu() {
+      if (!headerBar) return;
+      var rect = headerBar.getBoundingClientRect();
+      mobileMenu.style.top = rect.bottom + 'px';
+    }
 
     function setMenuOpen(open) {
       if (open) {
+        positionMenu();
         burgerBtn.classList.add('is-open');
         burgerBtn.setAttribute('aria-expanded', 'true');
         mobileMenu.classList.remove('hidden');
         mobileMenu.classList.add('flex');
+        document.body.style.overflow = 'hidden';
       } else {
         burgerBtn.classList.remove('is-open');
         burgerBtn.setAttribute('aria-expanded', 'false');
         mobileMenu.classList.add('hidden');
         mobileMenu.classList.remove('flex');
+        document.body.style.overflow = '';
       }
     }
 
@@ -141,6 +150,11 @@
     // Закрытие по Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') setMenuOpen(false);
+    });
+
+    // При ресайзе окна (если меню открыто) пересчитываем верх
+    window.addEventListener('resize', function () {
+      if (!mobileMenu.classList.contains('hidden')) positionMenu();
     });
   })();
 </script>

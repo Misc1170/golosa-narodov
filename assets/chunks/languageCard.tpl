@@ -5,9 +5,9 @@
     <div
       class="py-4 px-5 w-full rounded-3xl bg-[#1F384E] group-hover:bg-[#CF2D00] flex items-center justify-center text-center h-[75px] mb-3"
     >
-      <h2 class="uppercase text-white text-lg">[[+pagetitle]]</h2>
+      <h2 class="uppercase text-white text-2xl xl:text-lg">[[+pagetitle]]</h2>
     </div>
-    <div class="flex flex-col px-3 text-[13px]">[[+content]]</div>
+    <div class="flex flex-col px-3 text-xl xl:text-[13px]">[[+content]]</div>
 
     <svg
       class="mt-5"

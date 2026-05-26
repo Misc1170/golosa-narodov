@@ -1,10 +1,10 @@
 <div class="flex items-center gap-x-8 text-[#FFB35B]">
     <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
-    <h1 class="text-[50px] font-balkara">Новости</h1>
+    <h1 class="text-[28px] xl:text-[50px] font-balkara">Новости</h1>
     <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 
-<div class="w-full mx-10 my-20" id="news-page">
+<div class="w-full mx-2 xl:mx-10 my-8 xl:my-20" id="news-page">
     <!-- Список новостей: все карточки в DOM, JS показывает по 3 на страницу -->
     <div id="news-list" class="flex flex-col gap-y-8">
         [[getImageList?
@@ -29,6 +29,8 @@
    * Инициализация каждой карточки: галерея + раскрытие текста
    * =======================================================*/
   function initCard(card) {
+    // Установить начальный max-height адаптивно
+    card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 200) + 'px';
     /* --- Галерея --- */
     const gallery = card.querySelector('[data-gallery]');
     if (gallery) {
@@ -100,7 +102,7 @@
           textEl.style.webkitMaskImage = FADE_MASK;
           textEl.style.maskImage = FADE_MASK;
         }
-        card.style.maxHeight = '344px';
+        card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 200) + 'px';
         if (labelC) labelC.classList.remove('hidden');
         if (labelE) labelE.classList.add('hidden');
       }

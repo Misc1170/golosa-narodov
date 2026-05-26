@@ -13,7 +13,8 @@ window.onload = function () {
       width: 975,
       height: 497,
       defaultAttr: {
-        fill: "#EFEADE",
+        fill: "#F9F7F2",
+        "fill-opacity": 0.4,
         stroke: "#000000",
         "stroke-width": 1,
       },
@@ -59,4 +60,36 @@ window.onload = function () {
     },
     data.regions,
   );
+
+  // Масштабирование карты под ширину контейнера без переноса элементов
+  const MAP_W = 975;
+  const MAP_H = 497;
+
+  function scaleMap() {
+    const mapEl = document.getElementById("russian-map");
+    if (!mapEl) return;
+    const wrapper = mapEl.parentElement;
+
+    // documentElement.clientWidth — всегда реальная ширина viewport, не зависит от контента
+    const availW = document.documentElement.clientWidth;
+    const scale = Math.min(1, availW / MAP_W);
+
+    if (scale < 1) {
+      mapEl.style.transformOrigin = "top left";
+      mapEl.style.transform = `scale(${scale})`;
+      // Явно задаём размер обёртки = визуальный размер карты,
+      // иначе layout всё равно резервирует 975px
+      wrapper.style.width  = Math.round(MAP_W * scale) + "px";
+      wrapper.style.height = Math.round(MAP_H * scale) + "px";
+      wrapper.style.overflow = "hidden";
+    } else {
+      mapEl.style.transform = "";
+      wrapper.style.width  = "";
+      wrapper.style.height = "";
+      wrapper.style.overflow = "";
+    }
+  }
+
+  scaleMap();
+  window.addEventListener("resize", scaleMap);
 };
