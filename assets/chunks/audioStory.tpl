@@ -1,18 +1,18 @@
 <div class="flex gap-3 xl:gap-0" data-audio-story>
     <!-- КАРТИНКА -->
     <div class="flex justify-center items-start xl:items-end xl:mr-20 shrink-0">
-        <div class="w-[60px] h-[140px] xl:w-[149px] xl:h-[149px] rounded-lg xl:rounded-none overflow-hidden bg-[#FFB35B]/70">
+        <div class="w-[93px] h-[93px] xl:w-[60px] xl:h-[140px] xl:w-[149px] xl:h-[149px] rounded-lg xl:rounded-none overflow-hidden bg-[#FFB35B]/70">
             [[+image:striptags:strip:len:gt=`0`:then=`
                 <img src="[[+image]]" alt="[[+original_story_name]]" class="w-full h-full xl:rounded-2xl object-cover">
             `:else=`
                 <div class="w-full h-full xl:rounded-2xl bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs">обложка отсутствует</span>
+                    <span class="text-gray-400 text-xs text-center">обложка отсутствует</span>
                 </div>
             `]]
         </div>
     </div>
 
-    <div class="flex flex-col gap-4 xl:gap-6 flex-grow min-w-0">
+    <div class="flex flex-col ml-10 xl:ml-0 gap-3 xl:gap-6 flex-grow min-w-0">
         <!-- ОРИГИНАЛЬНОЕ АУДИО -->
         <div
             class="audio-container w-full flex flex-row items-center gap-3 xl:gap-0 xl:flex-col xl:items-stretch"
@@ -20,20 +20,20 @@
             data-story-title="[[+original_story_name]]"
             data-story-label="оригинальная сказка"
         >
-            <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-1">
+            <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-2 xl:order-1">
                 <h3 class="text-[15px] xl:text-[17px] font-semibold text-[#FFB35B] truncate xl:overflow-visible">[[+original_story_name]]</h3>
                 <span class="text-[11px] xl:text-[13px] lowercase font-light text-[#FFB35B]">
                     Оригинальная сказка
                 </span>
             </div>
-            <div class="flex items-center w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-2">
+            <div class="flex items-center w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-1 xl:order-2">
                 <div
                     class="relative flex items-center w-10 h-10 xl:w-auto xl:h-9 rounded-full transition-all duration-500 overflow-hidden xl:flex-grow"
                     data-player-bar
                 >
                     <div class="relative z-20 flex items-center h-full w-full xl:w-auto">
                         <button
-                            class="w-full xl:w-auto h-full px-0 xl:pl-4 xl:pr-3 flex items-center justify-center cursor-pointer bg-[#FFB35B]/70"
+                            class="w-full xl:w-auto h-full px-0 xl:pl-4 xl:pr-3 flex items-center justify-center cursor-pointer bg-[#FFB35B] xl:bg-[#FFB35B]/70"
                             data-base-color="bg-[#FFB35B]/70"
                             data-play-btn
                         >
@@ -74,20 +74,20 @@
             data-story-title="[[+translated_story_name]]"
             data-story-label="сказка в переводе"
         >
-            <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-1">
+            <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-2 xl:order-1">
                 <h3 class="text-[15px] xl:text-[17px] font-bold text-white truncate xl:overflow-visible">[[+translated_story_name]]</h3>
                 <span class="text-[11px] xl:text-[13px] lowercase tracking-wide xl:tracking-widest text-white font-light">
                     сказка в переводе
                 </span>
             </div>
-            <div class="flex items-center w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-2">
+            <div class="flex items-center w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-1 xl:order-2">
                 <div
                     class="relative flex items-center w-10 h-10 xl:w-auto xl:h-10 rounded-full transition-all duration-500 overflow-hidden xl:flex-grow"
                     data-player-bar
                 >
                     <div class="relative z-20 flex items-center h-full w-full xl:w-auto">
                         <button
-                            class="w-full xl:w-auto h-full px-0 xl:pl-4 xl:pr-3 flex items-center justify-center cursor-pointer bg-[#EFEADE]/70"
+                            class="w-full xl:w-auto h-full px-0 xl:pl-4 xl:pr-3 flex items-center justify-center cursor-pointer bg-[#EFEADE] xl:bg-[#EFEADE]/70"
                             data-base-color="bg-[#EFEADE]/70"
                             data-play-btn
                         >

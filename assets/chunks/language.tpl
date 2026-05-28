@@ -1,21 +1,43 @@
-<div class="flex flex-col mx-4 xl:mx-30 mb-20 mt-4 xl:mt-10 pb-24 xl:pb-0">
-  <div class="grid grid-cols-1 xl:grid-cols-12 text-white items-start gap-4 xl:gap-0">
-    <div class="flex col-span-1 xl:col-span-5 justify-start xl:justify-end items-start flex-shrink-0">
-      <img class="h-[80px] w-[18px] xl:h-[151px] xl:w-[30px]" src="/assets/images/red-arrow-down.png" alt="">
-      <div class="flex flex-col ml-4 xl:ml-10">
-        <h1 class="uppercase font-bold text-[22px] xl:text-[35px] leading-tight">[[*pagetitle]]</h1>
-        <h2 class="text-[16px] xl:text-[30px] font-light leading-none">сказки</h2>
-      </div>
+<div class="flex flex-col mx-4 xl:mx-30 mb-10 mt-4 xl:mt-10">
+  <!-- Мобильный заголовок: стрелка слева охватывает название, "сказки" и описание -->
+  <div class="xl:hidden flex items-start gap-3 text-white">
+    <div class="xl:hidden flex flex-col">
+        <img
+        class="h-[65px] w-[23px] shrink-0 object-contain"
+        src="/assets/images/red-arrow-down.png"
+        alt=""
+        >
+        <img
+        class="h-[65px] w-[23px] shrink-0 object-contain"
+        src="/assets/images/red-arrow-down.png"
+        alt=""
+        >
     </div>
-
-    <div class="hidden xl:block xl:col-span-2"></div>
-
-    <div class="col-span-1 xl:col-span-5 mt-2 xl:ml-10">
-      <span class="text-[13px] xl:text-[17px] font-light leading-tight text-justify">[[*content:striptags]]</span>
+    <div class="flex flex-col gap-2 flex-1 min-w-0">
+      <h1 class="uppercase font-bold text-[22px] leading-tight">[[*pagetitle]]</h1>
+      <h2 class="text-[16px] font-light leading-none">сказки</h2>
+      <span class="text-[13px] font-light leading-tight text-justify">[[*content:striptags]]</span>
     </div>
   </div>
 
-  <div class="mt-8 xl:mt-20 flex flex-col gap-y-6 xl:gap-y-20">
+  <!-- Десктопный заголовок: стрелка + (название/сказки) | описание в правой колонке -->
+  <div class="hidden xl:grid grid-cols-12 text-white items-start">
+    <div class="flex col-span-5 justify-end items-start flex-shrink-0">
+      <img class="h-[151px] w-[30px]" src="/assets/images/red-arrow-down.png" alt="">
+      <div class="flex flex-col ml-10">
+        <h1 class="uppercase font-bold text-[35px]">[[*pagetitle]]</h1>
+        <h2 class="text-[30px] font-light leading-none">сказки</h2>
+      </div>
+    </div>
+
+    <div class="col-span-2"></div>
+
+    <div class="col-span-5 ml-10 mt-2">
+      <span class="text-[17px] font-light leading-tight text-justify">[[*content:striptags]]</span>
+    </div>
+  </div>
+
+  <div class="mt-8 xl:mt-20 flex flex-col gap-y-10 xl:gap-y-6 xl:gap-y-20">
     [[getImageList?
       &tvname=`audio_stories`
       &tpl=`audioStory`
@@ -26,29 +48,28 @@
 <!-- Мобильный нижний плеер: всегда виден внизу, обновляется по активному аудио -->
 <div
   id="mobile-bottom-player"
-  class="xl:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#1F384E] text-white border-t border-white/10"
+  class="hidden xl:hidden fixed bottom-0 left-0 right-0 z-30 bg-white text-white"
 >
   <!-- Полоса прогресса в верхней части плеера -->
-  <div id="bp-progress-area" class="relative h-1 w-full bg-white/20 cursor-pointer">
+  <div id="bp-progress-area" class="relative h-4 w-full bg-[#D9D9D9] cursor-pointer">
     <div
       id="bp-progress"
-      class="absolute top-0 left-0 h-full bg-[#FFB35B] pointer-events-none transition-all duration-100"
+      class="absolute top-0 left-0 h-full bg-[#0F212F] pointer-events-none transition-all duration-100"
       style="width: 0%"
     ></div>
   </div>
 
   <div class="px-4 py-3 max-w-[1440px] mx-auto">
-    <!-- Ряд 1: название + кнопки -->
-    <div class="flex items-center gap-3 mb-3">
-      <div class="flex-grow min-w-0">
-        <div id="bp-title" class="text-base font-semibold text-[#FFB35B] truncate">—</div>
-        <div id="bp-label" class="text-xs lowercase opacity-70 truncate"></div>
+    <div class="flex items-center justify-between">
+      <div>
+        <div id="bp-title" class="text-base font-semibold text-black truncate">—</div>
+        <div id="bp-label" class="text-xs lowercase text-[#0F212F] truncate"></div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
-        <button type="button" id="bp-prev" aria-label="Назад" class="w-9 h-9 flex items-center justify-center text-white/80 hover:text-white cursor-pointer">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9 12l9 6V6z"/></svg>
+        <button type="button" id="bp-prev" aria-label="Назад" class="w-9 h-9 flex items-center justify-center cursor-pointer">
+          <svg class="text-[#0F212F]" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9 12l9 6V6z"/></svg>
         </button>
-        <button type="button" id="bp-play" aria-label="Воспроизведение" class="w-11 h-11 rounded-full bg-[#FFB35B] flex items-center justify-center cursor-pointer shrink-0">
+        <button type="button" id="bp-play" aria-label="Воспроизведение" class="w-11 h-11 rounded-full flex items-center justify-center cursor-pointer shrink-0">
           <div id="bp-play-icon" class="border-l-[12px] border-l-[#0F212F] border-y-[8px] border-y-transparent ml-1"></div>
           <div id="bp-pause-icon" class="hidden gap-1">
             <div class="w-1.5 h-4 bg-[#0F212F]"></div>
@@ -56,27 +77,33 @@
           </div>
         </button>
         <button type="button" id="bp-next" aria-label="Вперёд" class="w-9 h-9 flex items-center justify-center text-white/80 hover:text-white cursor-pointer">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6v12l9-6z"/></svg>
+          <svg class="text-[#0F212F]" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6v12l9-6z"/></svg>
         </button>
       </div>
-    </div>
-
-    <!-- Ряд 2: регулятор громкости -->
-    <div class="flex items-center gap-3">
-      <img class="h-5 w-5 shrink-0" src="/assets/images/volume-bar.png" alt="">
+        
+    <div class="flex items-center gap-2 shrink-0 w-[80px]">
+      <img class="h-5 w-5 shrink-0" src="/assets/images/volume-bar-black.png" alt="">
       <div
         id="bp-volume-bar"
-        class="relative flex-grow h-1 bg-white/20 rounded-full overflow-hidden cursor-pointer touch-none"
+        class="relative flex-grow h-1 bg-[#0F212F]/50 rounded-full overflow-hidden cursor-pointer touch-none"
       >
         <div
           id="bp-volume-progress"
-          class="absolute top-0 left-0 h-full bg-white pointer-events-none"
+          class="absolute top-0 left-0 h-full bg-[#0F212F] pointer-events-none"
           style="width: 100%"
         ></div>
       </div>
     </div>
+    </div>
   </div>
 </div>
+
+<style>
+  /* На мобильной/планшетной версии регулятор громкости рядом с кнопкой воспроизведения скрыт */
+  @media (max-width: 1279px) {
+    [data-volume-cont] { display: none !important; }
+  }
+</style>
 
 <script>
 (function() {
@@ -261,6 +288,14 @@
     function updateBottomPlayer(player, playing) {
         const bp = document.getElementById('mobile-bottom-player');
         if (!bp) return;
+        if (playing) {
+            bp.classList.remove('hidden');
+            // Чтобы плеер не перекрывал футер — добавляем body отступ снизу равный высоте плеера
+            // (только на мобиле; на десктопе плеер скрыт через xl:hidden)
+            if (window.matchMedia('(max-width: 1279px)').matches) {
+                document.body.style.paddingBottom = bp.offsetHeight + 'px';
+            }
+        }
         const titleEl = document.getElementById('bp-title');
         const labelEl = document.getElementById('bp-label');
         const playIc = document.getElementById('bp-play-icon');
@@ -372,6 +407,17 @@
             });
         }
     }
+
+    // Пересчёт отступа body при ресайзе окна (если плеер виден)
+    window.addEventListener('resize', () => {
+        const bp = document.getElementById('mobile-bottom-player');
+        if (!bp) return;
+        if (window.matchMedia('(max-width: 1279px)').matches && !bp.classList.contains('hidden')) {
+            document.body.style.paddingBottom = bp.offsetHeight + 'px';
+        } else {
+            document.body.style.paddingBottom = '';
+        }
+    });
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initAudioSystem);
