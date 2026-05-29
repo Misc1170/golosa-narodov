@@ -1,6 +1,6 @@
 <div class="flex items-center gap-x-8 text-[#FFB35B]">
     <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
-    <h1 class="text-[28px] xl:text-[50px] font-balkara">ЯЗЫКИ</h1>
+    <h1 class="text-[30px] xl:text-[50px] font-balkara">ЯЗЫКИ</h1>
     <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 

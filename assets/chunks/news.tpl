@@ -4,7 +4,7 @@
     <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 
-<div class="w-full mx-2 xl:mx-10 my-8 xl:my-20" id="news-page">
+<div class="w-full mx-0 xl:mx-10 my-8 xl:my-20" id="news-page">
     <!-- Список новостей: все карточки в DOM, JS показывает по 3 на страницу -->
     <div id="news-list" class="flex flex-col gap-y-8">
         [[getImageList?
@@ -30,7 +30,7 @@
    * =======================================================*/
   function initCard(card) {
     // Установить начальный max-height адаптивно
-    card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 200) + 'px';
+    card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 780) + 'px';
     /* --- Галерея --- */
     const gallery = card.querySelector('[data-gallery]');
     if (gallery) {
@@ -102,7 +102,7 @@
           textEl.style.webkitMaskImage = FADE_MASK;
           textEl.style.maskImage = FADE_MASK;
         }
-        card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 200) + 'px';
+        card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 780) + 'px';
         if (labelC) labelC.classList.remove('hidden');
         if (labelE) labelE.classList.add('hidden');
       }

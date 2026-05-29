@@ -83,11 +83,11 @@
   class="hidden xl:hidden fixed left-0 right-0 bottom-0 z-40 bg-[#CDC3B3] flex-col items-start text-black font-neris font-semibold text-2xl"
   style="top: 0;"
 >
-  <a href="[[~3]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>ЯЗЫКИ</span></a>
-  <a href="[[~10]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>О ПРОЕКТЕ</span></a>
-  <a href="[[~11]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>КОМАНДА</span></a>
-  <a href="[[~12]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>НОВОСТИ</span></a>
-  <a href="[[~13]]" class="p-6 w-full hover:bg-[#FFB35B]"><span>КОНТАКТЫ</span></a>
+  <a href="[[~3]]" class="[[*id:is=`3`:then=`bg-[#FFB35B]`:else=``]] p-4 w-full hover:bg-[#FFB35B]"><span>ЯЗЫКИ</span></a>
+  <a href="[[~10]]" class="[[*id:is=`10`:then=`bg-[#FFB35B]`:else=``]] p-4 w-full hover:bg-[#FFB35B]"><span>О ПРОЕКТЕ</span></a>
+  <a href="[[~11]]" class="[[*id:is=`11`:then=`bg-[#FFB35B]`:else=``]] p-4 w-full hover:bg-[#FFB35B]"><span>КОМАНДА</span></a>
+  <a href="[[~12]]" class="[[*id:is=`12`:then=`bg-[#FFB35B]`:else=``]] p-4 w-full hover:bg-[#FFB35B]"><span>НОВОСТИ</span></a>
+  <a href="[[~13]]" class="[[*id:is=`13`:then=`bg-[#FFB35B]`:else=``]] p-4 w-full hover:bg-[#FFB35B]"><span>КОНТАКТЫ</span></a>
 </div>
 
 <style>
