@@ -30,7 +30,7 @@
    * =======================================================*/
   function initCard(card) {
     const isXl = window.innerWidth >= 1280;
-    const COLLAPSED_H = isXl ? 344 : 780;
+    const COLLAPSED_H = isXl ? 352 : 780;
     card.style.maxHeight = COLLAPSED_H + 'px';
 
     /* --- Галерея --- */
@@ -113,7 +113,8 @@
       if (clipPoint <= 0 || clipPoint >= textEl.scrollHeight) return;
       const clipPct = Math.min(100, (clipPoint / textEl.scrollHeight) * 100);
       const fadePct = Math.max(0, clipPct - 12);
-      const mask = `linear-gradient(to bottom, black ${fadePct.toFixed(1)}%, transparent ${clipPct.toFixed(1)}%)`;
+      const mask = `linear-gradient(to bottom, black 50%, transparent 100%)`;
+      // const mask = `linear-gradient(to bottom, black ${fadePct.toFixed(1)}%, transparent ${clipPct.toFixed(1)}%)`;
       textEl.style.webkitMaskImage = mask;
       textEl.style.maskImage = mask;
     };
