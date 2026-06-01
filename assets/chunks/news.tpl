@@ -1,10 +1,10 @@
-<div class="flex items-center gap-x-8 text-[#FFB35B]">
-    <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
-    <h1 class="text-[28px] xl:text-[50px] font-balkara">Новости</h1>
-    <img class="w-[115px] h-[15px]" src="/assets/images/bubles.png" alt="">
+<div class="flex items-center justify-center gap-x-4 xl:gap-x-8 text-[#FFB35B]">
+    <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
+    <h1 class="text-[30px] xl:text-[50px] font-balkara">Новости</h1>
+    <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 
-<div class="w-full mx-0 xl:mx-10 my-8 xl:my-20" id="news-page">
+<div class="w-full xl:mx-10 my-8 xl:my-20" id="news-page">
     <!-- Список новостей: все карточки в DOM, JS показывает по 3 на страницу -->
     <div id="news-list" class="flex flex-col gap-y-8">
         [[getImageList?
@@ -29,8 +29,10 @@
    * Инициализация каждой карточки: галерея + раскрытие текста
    * =======================================================*/
   function initCard(card) {
-    // Установить начальный max-height адаптивно
-    card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 780) + 'px';
+    const isXl = window.innerWidth >= 1280;
+    const COLLAPSED_H = isXl ? 344 : 780;
+    card.style.maxHeight = COLLAPSED_H + 'px';
+
     /* --- Галерея --- */
     const gallery = card.querySelector('[data-gallery]');
     if (gallery) {
@@ -39,7 +41,6 @@
       const next = gallery.querySelector('[data-gallery-next]');
 
       if (images.length === 0) {
-        // Нет картинок — скрываем галерею
         gallery.style.display = 'none';
       } else {
         let current = 0;
@@ -61,52 +62,92 @@
     }
 
     /* --- Раскрытие/сворачивание текста --- */
-    const toggle = card.querySelector('[data-toggle-news]');
-    const labelC = card.querySelector('[data-toggle-collapsed]');
-    const labelE = card.querySelector('[data-toggle-expanded]');
-    const textEl = card.querySelector('[data-news-text]');
+    const contentDiv = card.querySelector('[data-card-content]');
+    const textEl     = card.querySelector('[data-news-text]');
+    const allToggles = Array.from(card.querySelectorAll('[data-toggle-news]'));
+    const allLabelC  = Array.from(card.querySelectorAll('[data-toggle-collapsed]'));
+    const allLabelE  = Array.from(card.querySelectorAll('[data-toggle-expanded]'));
 
-    // Проверяем, переполняется ли текст внутри своего блока
-    const overflows =
-      textEl && textEl.scrollHeight > textEl.clientHeight + 1;
+    // Элемент, по которому определяем переполнение:
+    // xl → textEl (обрезается фиксированной высотой xl:h-[196px])
+    // mobile → contentDiv (flex-1 overflow-hidden)
+    const overflowEl = isXl ? textEl : contentDiv;
+    if (!overflowEl) return;
+
+    const overflows = overflowEl.scrollHeight > overflowEl.clientHeight + 1;
+
     if (!overflows) {
-      if (toggle) toggle.style.display = 'none';
+      allToggles.forEach(t => t.style.display = 'none');
+      // На mobile сжимаем карточку до реального размера контента
+      if (!isXl && contentDiv) {
+        card.style.maxHeight = (card.offsetHeight - contentDiv.clientHeight + contentDiv.scrollHeight) + 'px';
+      }
       return;
     }
-    if (!toggle) return;
+    if (allToggles.length === 0) return;
 
-    // Плавное затухание снизу вместо жёсткой обрезки
-    const FADE_MASK = 'linear-gradient(to bottom, black 55%, transparent 100%)';
-    if (textEl) {
-      textEl.style.webkitMaskImage = FADE_MASK;
-      textEl.style.maskImage = FADE_MASK;
-    }
+    // Измеряем полную высоту без изменения max-height.
+    // scrollHeight дочернего overflow:hidden элемента всегда отражает полный контент,
+    // поэтому формула card.offsetHeight - contentDiv.clientHeight + contentDiv.scrollHeight
+    // даёт реальную высоту развёрнутой карточки.
+    // На xl textEl дополнительно ограничен xl:h-[196px] — временно снимаем это ограничение,
+    // чтобы contentDiv.scrollHeight учёл полный текст.
+    if (isXl && textEl) { textEl.style.height = 'auto'; textEl.style.overflow = 'visible'; }
+    void card.offsetHeight; // reflow перед чтением scrollHeight
+    const expandedHeight = card.offsetHeight - contentDiv.clientHeight + contentDiv.scrollHeight;
+    if (isXl && textEl) { textEl.style.height = ''; textEl.style.overflow = ''; }
 
-    toggle.addEventListener('click', () => {
+    /* --- Затухание --- */
+    const applyFade = () => {
+      if (!textEl) return;
+      let clipPoint;
+      if (isXl) {
+        // На xl textEl сам обрезает контент через xl:h-[196px]
+        clipPoint = textEl.clientHeight;
+      } else {
+        // На mobile обрезает contentDiv; вычисляем точку в координатах textEl
+        const cdRect = contentDiv.getBoundingClientRect();
+        const txRect = textEl.getBoundingClientRect();
+        clipPoint = contentDiv.clientHeight - (txRect.top - cdRect.top);
+      }
+      if (clipPoint <= 0 || clipPoint >= textEl.scrollHeight) return;
+      const clipPct = Math.min(100, (clipPoint / textEl.scrollHeight) * 100);
+      const fadePct = Math.max(0, clipPct - 12);
+      const mask = `linear-gradient(to bottom, black ${fadePct.toFixed(1)}%, transparent ${clipPct.toFixed(1)}%)`;
+      textEl.style.webkitMaskImage = mask;
+      textEl.style.maskImage = mask;
+    };
+    const removeFade = () => {
+      if (!textEl) return;
+      textEl.style.webkitMaskImage = 'none';
+      textEl.style.maskImage = 'none';
+    };
+    applyFade();
+
+    /* --- Обработчик кнопки --- */
+    const handleToggle = () => {
       const expanded = card.classList.toggle('is-expanded');
       if (expanded) {
-        if (textEl) {
-          textEl.style.height = 'auto';
-          textEl.style.overflow = 'visible';
-          textEl.style.webkitMaskImage = 'none';
-          textEl.style.maskImage = 'none';
-        }
-        // После раскрытия высоты — пересчитываем общую высоту карточки
-        card.style.maxHeight = card.scrollHeight + 'px';
-        if (labelC) labelC.classList.add('hidden');
-        if (labelE) labelE.classList.remove('hidden');
+        removeFade();
+        if (isXl && textEl) { textEl.style.height = 'auto'; textEl.style.overflow = 'visible'; }
+        card.style.maxHeight = expandedHeight + 'px';
+        allLabelC.forEach(el => el.classList.add('hidden'));
+        allLabelE.forEach(el => el.classList.remove('hidden'));
       } else {
-        if (textEl) {
-          textEl.style.height = '';
-          textEl.style.overflow = '';
-          textEl.style.webkitMaskImage = FADE_MASK;
-          textEl.style.maskImage = FADE_MASK;
-        }
-        card.style.maxHeight = (window.innerWidth >= 1280 ? 344 : 780) + 'px';
-        if (labelC) labelC.classList.remove('hidden');
-        if (labelE) labelE.classList.add('hidden');
+        if (isXl && textEl) { textEl.style.height = ''; textEl.style.overflow = ''; }
+        card.style.maxHeight = COLLAPSED_H + 'px';
+        allLabelC.forEach(el => el.classList.remove('hidden'));
+        allLabelE.forEach(el => el.classList.add('hidden'));
+        // Затухание после завершения перехода (clientHeight уже свёрнутый)
+        card.addEventListener('transitionend', function onEnd(e) {
+          if (e.propertyName !== 'max-height') return;
+          card.removeEventListener('transitionend', onEnd);
+          applyFade();
+        });
       }
-    });
+    };
+
+    allToggles.forEach(t => t.addEventListener('click', handleToggle));
   }
 
   document.querySelectorAll('[data-news-card]').forEach(initCard);

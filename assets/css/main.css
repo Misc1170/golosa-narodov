@@ -2,22 +2,29 @@
 
 @font-face {
   font-family: "Neris";
-  src: url("/assets/fonts/Neris/Neris-ThinItalic.otf") format("opentype");
+  src: url("/assets/fonts/Neris/Neris-ThinItalic.woff2") format("woff2");
   font-weight: 250;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Neris";
-  src: url("/assets/fonts/Neris/Neris-Light.otf") format("opentype");
+  src: url("/assets/fonts/Neris/Neris-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Neris";
-  src: url("/assets/fonts/Neris/Neris-SemiBold.otf") format("opentype");
+  src: url("/assets/fonts/Neris/Neris-SemiBold.woff2") format("woff2");
   font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neris";
+  src: url("/assets/fonts/Neris/Neris-Black.woff2") format("woff2");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -72,21 +79,3 @@ nav a:hover {
 
   transform: translate(-100%, -100%);
 }
-
-/* Стили для контента из текстового редактора */
-/* .rich-text-area strong {
-  @apply font-bold text-gray-900;
-} */
-
-/* .rich-text-area em {
-  @apply italic;
-} */
-
-/* .rich-text-area p {
-  @apply mb-2;
-} */
-
-/* Если вы хотите, чтобы строки внутри выглядели как в макете */
-/* .rich-text-area span {
-  @apply block;
-} */
