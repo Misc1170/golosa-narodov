@@ -13,8 +13,8 @@ window.onload = function () {
       width: 975,
       height: 497,
       defaultAttr: {
-        fill: "#F9F7F2",
-        "fill-opacity": 0.4,
+        fill: "#90979C",
+        "fill-opacity": 1,
         stroke: "#000000",
         "stroke-width": 1,
       },
@@ -26,12 +26,6 @@ window.onload = function () {
         fill: "#FFFFFF",
         stroke: "#FFB35B",
         "stroke-width": 2,
-      },
-      onMouseMove: function (event) {
-        console.log(
-          "MouseMove on " + this.region.name,
-          "ident: " + this.region.ident,
-        );
       },
       onMouseClick: function (event) {
         const activeRegions = window.activeRegions;
@@ -79,12 +73,12 @@ window.onload = function () {
       mapEl.style.transform = `scale(${scale})`;
       // Явно задаём размер обёртки = визуальный размер карты,
       // иначе layout всё равно резервирует 975px
-      wrapper.style.width  = Math.round(MAP_W * scale) + "px";
+      wrapper.style.width = Math.round(MAP_W * scale) + "px";
       wrapper.style.height = Math.round(MAP_H * scale) + "px";
       wrapper.style.overflow = "hidden";
     } else {
       mapEl.style.transform = "";
-      wrapper.style.width  = "";
+      wrapper.style.width = "";
       wrapper.style.height = "";
       wrapper.style.overflow = "";
     }

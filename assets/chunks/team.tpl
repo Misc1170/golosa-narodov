@@ -5,7 +5,7 @@
 </div>
 
 <div class="w-full">
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-6 xl:gap-x-12 gap-y-10 xl:gap-y-24 my-8 xl:my-20 mx-4 xl:mx-30">
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-6 xl:gap-x-12 gap-y-10 xl:gap-y-24 my-8 xl:mt-20 mx-4 xl:mx-30">
         [[getImageList?
         &tvname=`team_member`
         &tpl=`teamMember`

@@ -8,8 +8,8 @@
             </div>
         `]]
     </div>
-    <div class="flex flex-col justify-center items-center xl:justify-start xl:items-start text-base xl:text-xl font-semibold w-2/3 xl:w-full">
-        <div class="py-2 xl:pl-4 rounded-3xl border-2 border-[#FFB35B] flex items-center justify-center w-full">
+    <div class="flex flex-col justify-center items-center xl:justify-start xl:items-start xl:text-xl font-semibold w-2/3 xl:w-full">
+        <div class="py-2 xl:pl-4 rounded-3xl border-2 border-[#FFB35B] flex items-center justify-center xl:justify-start w-full">
             <h2 class="uppercase text-[#EFEADE] text-xl font-semibold">[[+name]]</h2>
         </div>
         <span class="text-white text-xl font-semibold xl:ml-4">[[+position]]</span>

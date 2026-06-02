@@ -12,7 +12,7 @@
     <h1 class="hidden xl:block text-[80px] font-balkara">НАРОДОВ РОССИИИ</h1>
 
     <!-- Строка 2 мобильная: стрелки + НАРОДОВ -->
-    <div class="flex items-center gap-x-8 xl:hidden">
+    <div class="flex items-center gap-x-0 min-[576px]:gap-x-2 xl:gap-x-8 xl:hidden">
       <img class="w-8 h-8" src="/assets/images/flower-right.png" alt="">
       <span class="text-[60px] font-balkara">НАРОДОВ</span>
       <img class="w-8 h-8 rotate-180" src="/assets/images/flower-right.png" alt="">
@@ -32,9 +32,11 @@
   </div>
 
   <div
-    class="flex flex-col items-center text-[16px] xl:text-[25px] text-white font-neris font-light"
-  >
-    <p>Цифровая платформа аудиосказок:</p>
-    <p>"Голоса народов России"</p>
+    class="flex flex-col items-center text-[25px] text-white font-neris font-light"
+    >
+    <div class="w-1/2 text-center">
+      <p>Цифровая платформа аудиосказок:</p>
+      <p>"Голоса народов России"</p>
+    </div>
   </div>
 </div>
