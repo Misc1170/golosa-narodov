@@ -20,14 +20,14 @@
           type="button"
           data-gallery-prev
           aria-label="Предыдущая картинка"
-          class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-[#0F212F]/70 hover:bg-[#0F212F] flex items-center justify-center text-white text-lg cursor-pointer transition-colors"
-        >&larr;</button>
+          class="absolute left-1 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-transparent border-none p-0 opacity-80 hover:opacity-100 transition-opacity"
+        ><img src="/assets/images/gallery-arrow.png" alt="Предыдущая" class="rotate-180"></button>
         <button
           type="button"
           data-gallery-next
           aria-label="Следующая картинка"
-          class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-[#0F212F]/70 hover:bg-[#0F212F] flex items-center justify-center text-white text-lg cursor-pointer transition-colors"
-        >&rarr;</button>
+          class="absolute right-1 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-transparent border-none p-0 opacity-80 hover:opacity-100 transition-opacity"
+        ><img src="/assets/images/gallery-arrow.png" alt="Следующая"></button>
       </div>
 
       <!-- Заголовок, текст и кнопка (xl) -->

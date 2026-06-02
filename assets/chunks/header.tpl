@@ -23,7 +23,7 @@
 </nav>
 
 <!-- Полоса и голотип по середине (десктоп) -->
-<div class="hidden xl:grid grid-cols-12 w-full max-w-[1440px] mx-auto px-12 mb-12">
+<div class="hidden xl:grid grid-cols-12 w-full max-w-[1440px] mx-auto mb-12">
   <div class="col-span-5 flex items-center">
     <span class="h-0.5 w-full bg-white"></span>
   </div>

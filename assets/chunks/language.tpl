@@ -26,7 +26,7 @@
       <img class="h-[151px] w-[30px]" src="/assets/images/red-arrow-down.png" alt="">
       <div class="flex flex-col ml-10">
         <h1 class="uppercase font-bold text-[35px]">[[*pagetitle]]</h1>
-        <h2 class="text-[30px] font-light leading-none">сказки</h2>
+        <h2 class="text-[30px] italic leading-none">сказки</h2>
       </div>
     </div>
 
@@ -239,6 +239,10 @@
                 if (volumeCont) volumeCont.classList.replace('hidden', 'flex');
                 if (progressArea) progressArea.style.cursor = 'pointer';
                 playBtn.classList.replace(baseColor, darkBaseColor);
+                if (window.matchMedia('(min-width: 1280px)').matches) {
+                    const hexColor = darkBaseColor.match(/#[0-9A-Fa-f]{6}/)?.[0];
+                    if (hexColor && playBtn.parentElement) playBtn.parentElement.style.backgroundColor = hexColor;
+                }
                 audio.volume = globalVolume;
 
                 // Обновляем нижний мобильный плеер
@@ -264,6 +268,9 @@
                     if (durationEl) durationEl.textContent = formatTime(audio.currentTime);
                 }
 
+                if (window.matchMedia('(min-width: 1280px)').matches) {
+                    if (playBtn.parentElement) playBtn.parentElement.style.backgroundColor = '';
+                }
                 // Обновляем нижний мобильный плеер только если это активная запись
                 if (audio === activeAudio) updateBottomPlayer(player, false);
             };
@@ -426,3 +433,4 @@
     }
 })();
 </script>
+    
