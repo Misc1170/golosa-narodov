@@ -31,10 +31,10 @@
       </div>
 
       <!-- Заголовок, текст и кнопка (xl) -->
-      <div class="flex-1 flex flex-col min-w-0 text-[#0F212F]">
+      <div class="flex-1 flex flex-col min-w-0 w-full text-[#0F212F]">
         <h2 class="text-xl font-bold mb-4 break-words">[[+title]]</h2>
         <div
-          class="news-content max-w-full text-base text-[20px] font-semibold break-words text-[#0F212F] [&_*]:max-w-full [&_img]:h-auto [&_p]:mb-2 xl:h-[230px] xl:overflow-hidden"
+          class="news-content max-w-full text-base text-[20px] font-semibold break-words text-[#0F212F] [&_*]:max-w-full [&_img]:h-auto [&_p]:mb-2 overflow-hidden xl:h-[230px]"
           data-news-text
         >[[+content]]</div>
 

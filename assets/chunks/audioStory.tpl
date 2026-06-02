@@ -21,8 +21,8 @@
             data-story-label="оригинальная сказка"
         >
             <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-2 xl:order-1">
-                <h3 class="text-[15px] xl:text-[17px] font-semibold text-[#FFB35B] truncate xl:overflow-visible">[[+original_story_name]]</h3>
-                <span class="text-[11px] xl:text-[13px] lowercase font-light text-[#FFB35B]">
+                <h3 class="text-[17px] font-semibold text-[#FFB35B] truncate xl:overflow-visible">[[+original_story_name]]</h3>
+                <span class="text-[13px] lowercase font-light text-[#FFB35B]">
                     Оригинальная сказка
                 </span>
             </div>
@@ -75,8 +75,8 @@
             data-story-label="сказка в переводе"
         >
             <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-2 xl:order-1">
-                <h3 class="text-[15px] xl:text-[17px] font-semibold text-white truncate xl:overflow-visible">[[+translated_story_name]]</h3>
-                <span class="text-[11px] xl:text-[13px] lowercase tracking-wide xl:tracking-widest text-white font-light">
+                <h3 class="text-[17px] font-semibold text-white truncate xl:overflow-visible">[[+translated_story_name]]</h3>
+                <span class="text-[13px] lowercase tracking-wide xl:tracking-widest text-white font-light">
                     сказка в переводе
                 </span>
             </div>

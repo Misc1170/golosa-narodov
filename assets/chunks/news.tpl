@@ -4,7 +4,7 @@
     <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 
-<div class="w-full xl:mx-10 my-8 xl:mt-20" id="news-page">
+<div class="w-full xl:mx-10 my-8 xl:mt-20 px-12 xl:px-0" id="news-page">
     <!-- Список новостей: все карточки в DOM, JS показывает по 3 на страницу -->
     <div id="news-list" class="flex flex-col gap-y-8">
         [[getImageList?

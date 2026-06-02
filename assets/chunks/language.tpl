@@ -3,20 +3,20 @@
   <div class="xl:hidden flex items-start gap-3 text-white">
     <div class="xl:hidden flex flex-col">
         <img
-        class="h-[65px] w-[23px] shrink-0 object-contain"
+        class="h-[85px] w-[23px] shrink-0 object-contain"
         src="/assets/images/red-arrow-down.png"
         alt=""
         >
         <img
-        class="h-[65px] w-[23px] shrink-0 object-contain"
+        class="h-[85px] w-[23px] shrink-0 object-contain"
         src="/assets/images/red-arrow-down.png"
         alt=""
         >
     </div>
     <div class="flex flex-col gap-2 flex-1 min-w-0">
-      <h1 class="uppercase font-bold text-[22px] leading-tight">[[*pagetitle]]</h1>
-      <h2 class="text-[16px] font-light leading-none">сказки</h2>
-      <span class="text-[13px] font-light leading-tight text-justify">[[*content:striptags]]</span>
+      <h1 class="uppercase font-bold text-[25px] leading-tight">[[*pagetitle]]</h1>
+      <h2 class="italic text-[22px] leading-none">сказки</h2>
+      <span class="text-[13px] font-light leading-tight text-justify mt-2">[[*content:striptags]]</span>
     </div>
   </div>
 
@@ -177,7 +177,9 @@
                                 const otherDuration = otherPlayer.querySelector('[data-duration]');
                                 if (otherBtn) {
                                     const otherBase = otherBtn.getAttribute('data-base-color');
-                                    otherBtn.classList.replace(otherBase.replace('/70', ''), otherBase);
+                                    if (window.matchMedia('(min-width: 1280px)').matches) {
+                                        otherBtn.classList.replace(otherBase.replace('/70', ''), otherBase);
+                                    }
                                 }
                                 if (otherDuration && otherAudio.duration) otherDuration.textContent = formatTime(otherAudio.duration);
                             }
@@ -238,7 +240,9 @@
                 }
                 if (volumeCont) volumeCont.classList.replace('hidden', 'flex');
                 if (progressArea) progressArea.style.cursor = 'pointer';
-                playBtn.classList.replace(baseColor, darkBaseColor);
+                if (window.matchMedia('(min-width: 1280px)').matches) {
+                    playBtn.classList.replace(baseColor, darkBaseColor);
+                }
                 if (window.matchMedia('(min-width: 1280px)').matches) {
                     const hexColor = darkBaseColor.match(/#[0-9A-Fa-f]{6}/)?.[0];
                     if (hexColor && playBtn.parentElement) playBtn.parentElement.style.backgroundColor = hexColor;
@@ -433,4 +437,4 @@
     }
 })();
 </script>
-    
+   

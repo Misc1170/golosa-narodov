@@ -8,7 +8,7 @@
     <!-- Вводная карточка -->
     <div class="flex flex-col xl:flex-row items-center xl:items-center justify-center xl:justify-between gap-0 xl:gap-0 bg-[#D9D9D9]/20 rounded-2xl px-4 py-6 xl:p-10 text-white font-semibold">
         <!-- Мобильная версия: единый центрированный абзац -->
-        <p class="xl:hidden leading-snug text-justify text-xl">
+        <p class="xl:hidden leading-snug text-center text-xl font-semibold">
             Звучащая карта «Голоса народов России» — цифровая платформа аудиосказок на языках народов Российской Федерации.
         </p>
         <!-- Десктопная версия: две колонки -->
@@ -24,7 +24,7 @@
     <div class="grid grid-cols-1 xl:grid-cols-12 justify-between gap-x-0 xl:gap-x-10 mt-0 xl:mt-10">
         <div class="text-white text-sm xl:text-xl text-justify flex flex-col xl:flex-row justify-center items-center gap-y-4 xl:gap-y-0 gap-x-0 xl:gap-x-10 col-span-1 xl:col-span-8">
             <img class="hidden xl:block w-[97px]" src="/assets/images/emblem-about.png" alt="">
-            <div class="flex flex-col text-justify text-xl">
+            <div class="text-justify text-xl font-semibold">
                 [[*content]]
             </div>
         </div>
@@ -34,9 +34,9 @@
                 <span class="text-xl font-semibold text-white text-center">Проект Цифровая платформа аудиосказок "Голоса народов России" реализуется при поддержке <a class="underline" href="https://vk.com/club205606768">Президентского фонда культурных инициатив.</a></span>
             </div>
 
-            <div class="flex flex-col justify-center items-center gap-y-3 xl:gap-y-6 rounded-2xl p-4 xl:p-10 border-2 border-[#EFEADE] text-base xl:text-[20px] font-semibold text-center">
+            <div class="flex flex-col justify-center items-center xl:gap-y-6 rounded-2xl p-4 xl:p-10 border-2 border-[#EFEADE] text-base xl:text-[20px] font-semibold text-center">
                 <div class="flex flex-col items-center gap-y-2">
-                    <img class="w-[44px] h-[44px] xl:w-[53px] xl:h-[53px]" src="/assets/images/flower-about.png" alt="">
+                    <img class="w-[61px] h-[61px] xl:w-[53px] xl:h-[53px]" src="/assets/images/flower-about.png" alt="">
                     <span class="text-white text-xl font-semibold">Слушайте, сохраняйте и делитесь!</span>
                 </div>
                 <span class="text-[#FFB35B] text-xl font-semibold">Пусть языки народов России&nbsp;зазвучат!</span>

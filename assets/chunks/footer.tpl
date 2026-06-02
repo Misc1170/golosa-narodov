@@ -1,10 +1,10 @@
 <!-- Полоса внизу -->
-<div class="max-w-[1440px] mx-auto px-4 xl:px-12">
+<div class="max-w-[1440px] mx-auto px-10">
   <div class="h-0.5 w-full bg-white mb-6 xl:mb-12"></div>
 </div>
 
 <footer
-  class="w-full max-w-[1440px] mx-auto px-4 xl:px-12 pb-8 xl:pb-12"
+  class="w-full max-w-[1440px] mx-auto px-14 pb-8 xl:pb-12"
 >
   <!-- ====================== Десктоп (≥1280px) ====================== -->
   <div class="hidden xl:flex flex-col items-center gap-y-10 w-full">
