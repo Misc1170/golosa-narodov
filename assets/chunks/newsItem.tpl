@@ -63,7 +63,7 @@
 
   <!-- Декоративные треугольники справа -->
   <img
-    src="/assets/images/news/triangles.png"
+    src="/assets/images/triangles.png"
     alt=""
     aria-hidden="true"
     class="hidden xl:block absolute right-0 top-0 h-[352px] w-auto pointer-events-none select-none"
