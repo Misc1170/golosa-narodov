@@ -3,6 +3,8 @@
 /core/cache/
 /core/config/config.inc.php
 /config.core.php
+/manager/config.core.php
+/connectors/config.core.php
 /core/cache/
 /node_modules/
 /CLAUDE.md
