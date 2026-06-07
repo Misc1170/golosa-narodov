@@ -8,10 +8,17 @@ export default {
       transformMixedEsModules: true,
     },
     rollupOptions: {
+      input: {
+        main: "assets/css/main.css",
+      },
       output: {
-        format: "es", // или попробуйте 'cjs' если проект старый
+        format: "es",
+        assetFileNames: "assets/css/[name].min[extname]",
+        entryFileNames: "assets/js/[name].js",
       },
     },
+    outDir: ".",
+    emptyOutDir: false,
   },
   define: {
     Raphael: "window.Raphael",
