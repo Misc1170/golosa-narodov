@@ -6,11 +6,11 @@
     <script>
       window.activeRegions = [[getActiveRegions]];
     </script>
-    <script
-      type="module"
-      src="http://localhost:5173/assets/js/home.js"
-      defer
-    ></script>
+    [[++is_dev:eq=`1`:then=`
+    <script type="module" src="http://localhost:5173/assets/js/home.js" defer></script>
+  `:else=`
+    <script type="module" src="/assets/js/home.js" defer></script>
+  `]]
   </head>
 
   <body>

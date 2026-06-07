@@ -1,6 +1,9 @@
 /assets/stories/
 .idea/
 /core/cache/
+/core/config/config.inc.php
+/config.core.php
+/core/cache/
 /node_modules/
 /CLAUDE.md
 /assets/fairy-tales/
