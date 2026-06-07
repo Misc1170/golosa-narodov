@@ -10,6 +10,7 @@ export default {
     rollupOptions: {
       input: {
         main: "assets/css/main.css",
+        home: "assets/js/home.js",
       },
       output: {
         format: "es",
