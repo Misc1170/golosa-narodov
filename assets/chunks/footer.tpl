@@ -49,14 +49,14 @@
     <div class="flex justify-between items-center w-full gap-4">
       <a href="https://фондкультурныхинициатив.ру" class="shrink-0">
         <img
-          class="w-[182px] h-[42px]"
+          class="w-[147px] h-[33px]"
           src="/assets/images/president-fond-iniziativ.png"
           alt=""
         />
       </a>
       <a href="https://vk.com/golosa_narodov" class="shrink-0">
         <img
-          class="w-[52px] h-[52px]"
+          class="w-[42px] h-[42px]"
           src="/assets/images/vk.png"
           alt=""
         />
@@ -68,20 +68,20 @@
       <div class="flex items-center gap-3">
         <a href="https://away.vk.com/away.php" class="shrink-0">
           <img
-            class="w-[49px] h-[49px]"
+            class="w-[39px] h-[39px]"
             src="/assets/images/idei-i-smisli.png"
             alt=""
           />
         </a>
         <a href="#" class="shrink-0">
           <img
-            class="w-[102px] h-[43px]"
+            class="w-[84px] h-[35px]"
             src="/assets/images/golosa-narodov.png"
             alt=""
           />
         </a>
       </div>
-      <span class="text-sm text-white font-light text-right shrink-0">© АНО «Идеи и смыслы», 2026</span>
+      <span class="text-[13px] text-white font-light text-right shrink-0">© АНО «Идеи и смыслы», 2026</span>
     </div>
   </div>
 </footer>

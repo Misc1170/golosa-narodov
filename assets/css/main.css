@@ -70,12 +70,39 @@ nav a:hover {
   position: absolute;
   background: red;
   color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 3px 6px;
+  border-radius: 4px;
   pointer-events: auto;
+  text-align: center;
 
   display: none;
 
   transform: translate(-100%, -100%);
+}
+
+#region-label strong {
+  font-size: 6px;
+  font-weight: 600;
+}
+
+#region-label a {
+  font-size: 6px;
+  font-weight: 300;
+}
+
+@media (min-width: 1280px) {
+  #region-label {
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+
+  #region-label strong {
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  #region-label a {
+    font-size: 10px;
+    font-weight: 300;
+  }
 }
