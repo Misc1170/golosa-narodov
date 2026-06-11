@@ -1,4 +1,4 @@
-  <title>[[*pagetitle]] - [[++site_name]]</title>
+  <title>[[*pagetitle]][[++site_name]]</title>
 
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
