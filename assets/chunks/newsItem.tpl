@@ -36,7 +36,8 @@
         <div
           class="news-content max-w-full text-base text-[20px] font-semibold break-words text-[#0F212F] [&_*]:max-w-full [&_img]:h-auto [&_p]:mb-2 overflow-hidden xl:h-[230px]"
           data-news-text
-        >[[+content]]</div>
+        >[[+text]]</div>
+        <!-- >[[+content]]</div> -->
 
         <!-- Кнопка xl: в потоке после текста, внутри текстовой колонки -->
         <button

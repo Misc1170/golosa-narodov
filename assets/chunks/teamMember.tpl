@@ -12,6 +12,6 @@
         <div class="py-2 xl:pl-4 rounded-3xl border-2 border-[#FFB35B] flex items-center justify-center xl:justify-start w-full">
             <h2 class="uppercase text-[#EFEADE] text-xl font-semibold">[[+name]]</h2>
         </div>
-        <span class="text-white text-xl font-semibold xl:ml-4">[[+position]]</span>
+        <span class="text-white text-xl font-semibold xl:ml-4 text-center">[[+position]]</span>
     </div>
     </div>

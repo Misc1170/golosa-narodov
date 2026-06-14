@@ -1,1 +1,1 @@
-<img src="[[+image]]" alt="[[+alt]]" class="news-gallery-img absolute inset-0 w-full h-full object-cover hidden">
+<img src="[[++assets_url]]news/[[+image]]" alt="[[+alt]]" class="news-gallery-img absolute inset-0 w-full h-full object-cover hidden">

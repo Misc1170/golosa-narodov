@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col ml-10 xl:ml-0 gap-3 xl:gap-6 flex-grow min-w-0">
+    <div class="flex flex-col ml-0 min-[420px]:ml-10 xl:ml-0 gap-3 xl:gap-6 flex-grow min-w-0">
         <!-- ОРИГИНАЛЬНОЕ АУДИО -->
         <div
             class="audio-container w-full flex flex-row items-center gap-3 xl:gap-0 xl:flex-col xl:items-stretch"
