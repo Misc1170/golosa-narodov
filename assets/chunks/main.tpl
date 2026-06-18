@@ -4,7 +4,7 @@
     <!-- Строка 1: на xl — стрелки + ГОЛОСА; на мобильных — только ГОЛОСА -->
     <div class="flex items-center gap-x-8">
       <img class="hidden xl:block w-10 h-10" src="/assets/images/flower-right.png" alt="">
-      <span class="text-[40px] xl:text-[80px] font-balkara">ГОЛОСА</span>
+      <span class="text-[30px] xl:text-[80px] font-balkara">ГОЛОСА</span>
       <img class="hidden xl:block w-10 h-10 rotate-180" src="/assets/images/flower-right.png" alt="">
     </div>
 
@@ -13,15 +13,15 @@
 
     <!-- Строка 2 мобильная: стрелки + НАРОДОВ -->
     <div class="flex items-center gap-x-2 xl:gap-x-8 xl:hidden">
-      <img class="w-6 h-6" src="/assets/images/flower-right.png" alt="">
-      <span class="text-[40px] font-balkara">НАРОДОВ</span>
-      <img class="w-6 h-6 rotate-180" src="/assets/images/flower-right.png" alt="">
+      <img class="w-5 h-5" src="/assets/images/flower-right.png" alt="">
+      <span class="text-[30px] font-balkara">НАРОДОВ</span>
+      <img class="w-5 h-5 rotate-180" src="/assets/images/flower-right.png" alt="">
     </div>
 
     <!-- Строка 3 мобильная: РОССИИИ -->
-    <span class="xl:hidden text-[40px] font-balkara">РОССИИИ</span>
+    <span class="text-[30px] xl:hidden font-balkara">РОССИИИ</span>
 
-    <h2 class="text-[17px] xl:text-[40px] mt-2 xl:mt-4 font-neris font-light">
+    <h2 class="text-[15px] xl:text-[40px] mt-2 xl:mt-4 font-neris font-light">
       ЗВУЧАЩАЯ КАРТА
     </h2>
   </div>
@@ -32,7 +32,7 @@
   </div>
 
   <div
-    class="flex flex-col items-center text-[17px] xl:text-[25px] text-white font-neris font-light"
+    class="flex flex-col items-center text-[15px] xl:text-[25px] text-white font-neris font-light"
     >
     <div class="w-1/2 text-center">
       <p>Цифровая платформа аудиосказок:</p>

@@ -49,28 +49,28 @@
     <div class="flex justify-center gap-x-4 items-center w-full">
       <a href="https://фондкультурныхинициатив.ру" class="shrink-0">
         <img
-          class="w-[121px] h-[28px]"
+          class="w-[114px] h-[26px]"
           src="/assets/images/president-fond-iniziativ.png"
           alt=""
         />
       </a>
       <a href="https://away.vk.com/away.php" class="shrink-0">
         <img
-          class="w-[32px] h-[32px]"
+          class="w-[30px] h-[30px]"
           src="/assets/images/idei-i-smisli.png"
           alt=""
         />
       </a>
       <a href="#" class="shrink-0">
         <img
-          class="w-[70px] h-[29px]"
+          class="w-[65px] h-[27px]"
           src="/assets/images/golosa-narodov.png"
           alt=""
         />
       </a>
       <a href="https://vk.com/golosa_narodov" class="shrink-0">
         <img
-          class="w-[24px] h-[24px]"
+          class="w-[22px] h-[22px]"
           src="/assets/images/vk.png"
           alt=""
         />

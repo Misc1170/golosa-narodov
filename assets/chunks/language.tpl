@@ -3,20 +3,20 @@
   <div class="xl:hidden flex items-start gap-3 text-white">
     <div class="xl:hidden flex flex-col">
         <img
-        class="h-[85px] w-[23px] shrink-0 object-contain"
+        class="h-[54px] w-[14px] shrink-0 object-contain"
         src="/assets/images/red-arrow-down.png"
         alt=""
         >
         <img
-        class="h-[85px] w-[23px] shrink-0 object-contain"
+        class="h-[54px] w-[14px] shrink-0 object-contain"
         src="/assets/images/red-arrow-down.png"
         alt=""
         >
     </div>
-    <div class="flex flex-col gap-2 flex-1 min-w-0">
-      <h1 class="uppercase font-bold text-[25px] leading-tight">[[*pagetitle]]</h1>
-      <h2 class="italic text-[22px] leading-none">сказки</h2>
-      <span class="text-[13px] font-light leading-tight text-justify mt-2">[[*content:striptags]]</span>
+    <div class="flex flex-col gap-x-2 gap-y-0 xl:gap-2 flex-1 min-w-0">
+      <h1 class="uppercase font-bold text-[15px] leading-tight">[[*pagetitle]]</h1>
+      <h2 class="italic text-[15px] leading-none">сказки</h2>
+      <span class="text-[10px] font-light leading-tight text-justify mt-2">[[*content:striptags]]</span>
     </div>
   </div>
 
@@ -59,30 +59,30 @@
     ></div>
   </div>
 
-  <div class="px-4 py-3 max-w-[1440px] mx-auto">
+  <div class="p-1 max-w-[1440px] mx-auto">
     <div class="flex items-center justify-between">
       <div>
-        <div id="bp-title" class="text-base font-semibold text-black truncate">—</div>
-        <div id="bp-label" class="text-xs lowercase text-[#0F212F] truncate"></div>
+        <div id="bp-title" class="text-[13px] font-semibold text-black truncate">—</div>
+        <div id="bp-label" class="text-[10px] lowercase text-[#0F212F] truncate"></div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
-        <button type="button" id="bp-prev" aria-label="Назад" class="w-9 h-9 flex items-center justify-center cursor-pointer">
+        <button type="button" id="bp-prev" aria-label="Назад" class="w-4 h-4 flex items-center justify-center cursor-pointer">
           <svg class="text-[#0F212F]" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9 12l9 6V6z"/></svg>
         </button>
-        <button type="button" id="bp-play" aria-label="Воспроизведение" class="w-11 h-11 rounded-full flex items-center justify-center cursor-pointer shrink-0">
+        <button type="button" id="bp-play" aria-label="Воспроизведение" class="w-5 h-5 rounded-full flex items-center justify-center cursor-pointer shrink-0">
           <div id="bp-play-icon" class="border-l-[12px] border-l-[#0F212F] border-y-[8px] border-y-transparent ml-1"></div>
           <div id="bp-pause-icon" class="hidden gap-1">
             <div class="w-1.5 h-4 bg-[#0F212F]"></div>
             <div class="w-1.5 h-4 bg-[#0F212F]"></div>
           </div>
         </button>
-        <button type="button" id="bp-next" aria-label="Вперёд" class="w-9 h-9 flex items-center justify-center text-white/80 hover:text-white cursor-pointer">
+        <button type="button" id="bp-next" aria-label="Вперёд" class="w-4 h-4 flex items-center justify-center text-white/80 hover:text-white cursor-pointer">
           <svg class="text-[#0F212F]" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6v12l9-6z"/></svg>
         </button>
       </div>
         
     <div class="flex items-center gap-2 shrink-0 w-[80px]">
-      <img class="h-5 w-5 shrink-0" src="/assets/images/volume-bar-black.png" alt="">
+      <img class="h-3.5 w-3.5 shrink-0" src="/assets/images/volume-bar-black.png" alt="">
       <div
         id="bp-volume-bar"
         class="relative flex-grow h-1 bg-[#0F212F]/50 rounded-full overflow-hidden cursor-pointer touch-none"
