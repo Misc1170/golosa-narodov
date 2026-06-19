@@ -61,11 +61,11 @@
 
   <div class="p-1 max-w-[1440px] mx-auto">
     <div class="flex items-center justify-between">
-      <div>
-        <div id="bp-title" class="text-[13px] font-semibold text-black truncate">—</div>
+      <div class="w-1/3">
+        <div id="bp-title" class="text-[13px] font-semibold text-black xl:truncate">—</div>
         <div id="bp-label" class="text-[10px] lowercase text-[#0F212F] truncate"></div>
       </div>
-      <div class="flex items-center gap-2 shrink-0">
+      <div class="flex items-center gap-2 shrink-0 w-1/3">
         <button type="button" id="bp-prev" aria-label="Назад" class="w-4 h-4 flex items-center justify-center cursor-pointer">
           <svg class="text-[#0F212F]" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9 12l9 6V6z"/></svg>
         </button>
@@ -81,11 +81,11 @@
         </button>
       </div>
         
-    <div class="flex items-center gap-2 shrink-0 w-[80px]">
+    <div class="flex items-center gap-2 shrink-0 w-[80px] w-1/3">
       <img class="h-3.5 w-3.5 shrink-0" src="/assets/images/volume-bar-black.png" alt="">
       <div
         id="bp-volume-bar"
-        class="relative flex-grow h-1 bg-[#0F212F]/50 rounded-full overflow-hidden cursor-pointer touch-none"
+        class="relative flex-grow h-1 bg-[#0F212F]/50 rounded-full overflow-hidden cursor-pointer touch-none w-[40px] xl:w-[92px]"
       >
         <div
           id="bp-volume-progress"

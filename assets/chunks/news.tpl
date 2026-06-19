@@ -1,10 +1,10 @@
 <div class="flex items-center justify-center gap-x-4 xl:gap-x-8 text-[#FFB35B]">
-    <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
-    <h1 class="text-[30px] xl:text-[50px] font-balkara">Новости</h1>
-    <img class="w-[76px] h-[10px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
+    <img class="w-[60px] h-[8px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
+    <h1 class="text-[20px] xl:text-[50px] font-balkara">Новости</h1>
+    <img class="w-[60px] h-[8px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
 </div>
 
-<div class="w-full xl:mx-10 my-8 xl:mt-20 px-12 xl:px-0" id="news-page">
+<div class="w-full xl:mx-10 my-8 xl:mt-20 xl:px-0" id="news-page">
     <!-- Список новостей: все карточки в DOM, JS показывает по 3 на страницу -->
     <div id="news-list" class="flex flex-col gap-y-8">
         [[getImageList?
@@ -30,7 +30,7 @@
    * =======================================================*/
   function initCard(card) {
     const isXl = window.innerWidth >= 1280;
-    const COLLAPSED_H = isXl ? 352 : 780;
+    const COLLAPSED_H = isXl ? 352 : 470;
     card.style.maxHeight = COLLAPSED_H + 'px';
 
     /* --- Галерея --- */
@@ -193,7 +193,7 @@
     b.type = 'button';
     b.innerHTML = html;
     b.className =
-      'w-8 h-8 px-2 flex items-center justify-center transition-colors text-base cursor-pointer ' +
+      'w-4.5 h-4.5 xl:w-8 xl:h-8 px-1 xl:px-2 flex items-center justify-center transition-colors text-[10px] xl:text-lg cursor-pointer ' +
       (opts.cls || '');
     if (opts.disabled) {
       b.disabled = true;
@@ -207,7 +207,7 @@
   const renderPag = () => {
     pagEl.innerHTML = '';
     pagEl.appendChild(
-      makeBtn('<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><polygon points="10,0 0,8 10,16"/></svg>', () => showPage(currentPage - 1), {
+      makeBtn('<svg width="10" height="10" viewBox="0 0 10 16" fill="currentColor"><polygon points="10,0 0,8 10,16"/></svg>', () => showPage(currentPage - 1), {
         cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-md',
         disabled: currentPage <= 1,
       })
@@ -226,7 +226,7 @@
     }
 
     pagEl.appendChild(
-      makeBtn('<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor"><polygon points="0,0 10,8 0,16"/></svg>', () => showPage(currentPage + 1), {
+      makeBtn('<svg width="10" height="10" viewBox="0 0 10 16" fill="currentColor"><polygon points="0,0 10,8 0,16"/></svg>', () => showPage(currentPage + 1), {
         cls: 'text-white font-light bg-[#D9D9D9]/20 rounded-md',
         disabled: currentPage >= totalPages,
       })

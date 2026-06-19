@@ -81,12 +81,12 @@ nav a:hover {
 }
 
 #region-label strong {
-  font-size: 6px;
+  font-size: 8px;
   font-weight: 600;
 }
 
 #region-label a {
-  font-size: 6px;
+  font-size: 7px;
   font-weight: 300;
 }
 
@@ -97,12 +97,12 @@ nav a:hover {
   }
 
   #region-label strong {
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
   }
 
   #region-label a {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 300;
   }
 }

@@ -70,7 +70,7 @@
       <!-- Эмблема справа -->
       <div class="col-span-3 flex justify-end items-center">
         <a href="/">
-          <img class="xl:w-[85px] xl:h-[85px] w-[70px] h-[70px]" src="/assets/images/main-emblem.png" alt="">
+          <img class="xl:w-[85px] xl:h-[85px] w-[62px] h-[62px]" src="/assets/images/main-emblem.png" alt="">
         </a>
       </div>
     </div>

@@ -9,7 +9,7 @@
 
       <!-- Картинка-галерея -->
       <div
-        class="relative shrink-0 w-[320px] h-[320px] rounded-3xl overflow-hidden bg-black/20"
+        class="relative shrink-0 w-[220px] h-[220px] xl:w-[320px] xl:h-[320px] rounded-3xl overflow-hidden bg-black/20"
         data-gallery
       >
         [[getImageList?
@@ -21,20 +21,20 @@
           data-gallery-prev
           aria-label="Предыдущая картинка"
           class="absolute left-1 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-transparent border-none p-0 opacity-80 hover:opacity-100 transition-opacity"
-        ><img src="/assets/images/gallery-arrow.png" alt="Предыдущая" class="rotate-180"></button>
+        ><img src="/assets/images/gallery-arrow.png" alt="Предыдущая" class="rotate-180 w-[13px] h-[13px] xl:w-auto xl:h-auto"></button>
         <button
           type="button"
           data-gallery-next
           aria-label="Следующая картинка"
           class="absolute right-1 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-transparent border-none p-0 opacity-80 hover:opacity-100 transition-opacity"
-        ><img src="/assets/images/gallery-arrow.png" alt="Следующая"></button>
+        ><img src="/assets/images/gallery-arrow.png" alt="Следующая" class="w-[13px] h-[13px] xl:w-auto xl:h-auto"></button>
       </div>
 
       <!-- Заголовок, текст и кнопка (xl) -->
       <div class="flex-1 flex flex-col min-w-0 w-full text-[#0F212F]">
-        <h2 class="text-xl font-bold mb-4 break-words">[[+title]]</h2>
+        <h2 class="text-[13px] xl:text-xl font-semibold xl:font-bold mb-4 break-words">[[+title]]</h2>
         <div
-          class="news-content max-w-full text-base text-[20px] font-semibold break-words text-[#0F212F] [&_*]:max-w-full [&_img]:h-auto [&_p]:mb-2 overflow-hidden xl:h-[230px]"
+          class="news-content max-w-full text-[13px] xl:text-xl font-light xl:font-semibold break-words text-[#0F212F] [&_*]:max-w-full [&_img]:h-auto [&_p]:mb-2 overflow-hidden xl:h-[230px]"
           data-news-text
         >[[+text]]</div>
         <!-- >[[+content]]</div> -->
@@ -56,7 +56,7 @@
   <button
     type="button"
     data-toggle-news
-    class="xl:hidden shrink-0 self-start mt-2 hover:underline font-light cursor-pointer text-xl"
+    class="xl:hidden shrink-0 self-start mt-2 hover:underline font-light cursor-pointer text-[13px] xl:text-xl"
   >
     <span data-toggle-collapsed class="italic">Читать полностью</span>
     <span data-toggle-expanded class="hidden italic">Скрыть</span>
