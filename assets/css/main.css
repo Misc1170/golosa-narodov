@@ -90,6 +90,13 @@ nav a:hover {
   font-weight: 300;
 }
 
+@media (max-width: 1279px) {
+  [data-card-content] {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
+
 @media (min-width: 1280px) {
   #region-label {
     padding: 5px 10px;

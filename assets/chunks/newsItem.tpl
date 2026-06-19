@@ -1,5 +1,5 @@
 <article
-  class="news-card relative bg-[#CDC3B3] rounded-xl px-2 py-4 xl:p-4 overflow-hidden transition-[max-height] duration-300 ease-in-out mx-3 xl:mx-0 flex flex-col"
+  class="news-card relative bg-[#CDC3B3] rounded-xl px-3 py-4 xl:p-4 overflow-hidden transition-[max-height] duration-300 ease-in-out mx-3 xl:mx-0 flex flex-col"
   data-news-card
   style="max-height: 780px;"
 >
