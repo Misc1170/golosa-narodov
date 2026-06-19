@@ -98,30 +98,21 @@
     if (isXl && textEl) { textEl.style.height = ''; textEl.style.overflow = ''; }
 
     /* --- Затухание --- */
+    const FADE_MASK = 'linear-gradient(to bottom, black 80%, transparent 100%)';
     const applyFade = () => {
-      if (!textEl) return;
-      let clipPoint;
       if (isXl) {
-        // На xl textEl сам обрезает контент через xl:h-[196px]
-        clipPoint = textEl.clientHeight;
+        if (!textEl) return;
+        textEl.style.webkitMaskImage = FADE_MASK;
+        textEl.style.maskImage = FADE_MASK;
       } else {
-        // На mobile обрезает contentDiv; вычисляем точку в координатах textEl
-        const cdRect = contentDiv.getBoundingClientRect();
-        const txRect = textEl.getBoundingClientRect();
-        clipPoint = contentDiv.clientHeight - (txRect.top - cdRect.top);
+        if (!contentDiv) return;
+        contentDiv.style.webkitMaskImage = FADE_MASK;
+        contentDiv.style.maskImage = FADE_MASK;
       }
-      if (clipPoint <= 0 || clipPoint >= textEl.scrollHeight) return;
-      const clipPct = Math.min(100, (clipPoint / textEl.scrollHeight) * 100);
-      const fadePct = Math.max(0, clipPct - 12);
-      const mask = `linear-gradient(to bottom, black 50%, transparent 100%)`;
-      // const mask = `linear-gradient(to bottom, black ${fadePct.toFixed(1)}%, transparent ${clipPct.toFixed(1)}%)`;
-      textEl.style.webkitMaskImage = mask;
-      textEl.style.maskImage = mask;
     };
     const removeFade = () => {
-      if (!textEl) return;
-      textEl.style.webkitMaskImage = 'none';
-      textEl.style.maskImage = 'none';
+      if (textEl) { textEl.style.webkitMaskImage = 'none'; textEl.style.maskImage = 'none'; }
+      if (contentDiv) { contentDiv.style.webkitMaskImage = 'none'; contentDiv.style.maskImage = 'none'; }
     };
     applyFade();
 
