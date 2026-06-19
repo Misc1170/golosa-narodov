@@ -1,6 +1,6 @@
 <!-- Полоса внизу -->
 <div class="max-w-[1440px] mx-auto px-10">
-  <div class="h-0.5 w-full bg-white mb-6 xl:mb-12"></div>
+  <div class="h-0.5 w-full bg-white my-6 xl:mb-12"></div>
 </div>
 
 <footer
@@ -10,14 +10,14 @@
   <div class="hidden xl:flex flex-col items-center gap-y-10 w-full">
     <div class="flex justify-around items-center w-full">
       <div class="flex items-center gap-12">
-        <a href="https://фондкультурныхинициатив.ру">
+        <a href="https://xn--80aeeqaabljrdbg6a3ahhcl4ay9hsa.xn--p1ai/">
           <img
             class="w-[299px] h-[68px]"
             src="/assets/images/president-fond-iniziativ.png"
             alt=""
           />
         </a>
-        <a href="https://away.vk.com/away.php">
+        <a href="https://nko47.ru/ideismisli">
           <img
             class="w-[81px] h-[81px]"
             src="/assets/images/idei-i-smisli.png"
@@ -47,14 +47,14 @@
   <div class="xl:hidden flex flex-col gap-y-6 w-full">
     <!-- Ряд 1: все логотипы в одну строку -->
     <div class="flex justify-center gap-x-4 items-center w-full">
-      <a href="https://фондкультурныхинициатив.ру" class="shrink-0">
+      <a href="https://xn--80aeeqaabljrdbg6a3ahhcl4ay9hsa.xn--p1ai/" class="shrink-0">
         <img
           class="w-[114px] h-[26px]"
           src="/assets/images/president-fond-iniziativ.png"
           alt=""
         />
       </a>
-      <a href="https://away.vk.com/away.php" class="shrink-0">
+      <a href="https://nko47.ru/ideismisli" class="shrink-0">
         <img
           class="w-[30px] h-[30px]"
           src="/assets/images/idei-i-smisli.png"

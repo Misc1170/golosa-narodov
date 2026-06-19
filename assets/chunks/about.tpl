@@ -12,7 +12,7 @@
             Звучащая карта «Голоса народов России» — цифровая платформа аудиосказок на языках народов Российской Федерации.
         </p>
         <!-- Десктопная версия: две колонки -->
-        <span class="hidden xl:block w-1/4 text-xl font-semibold">Звучащая карта "Голоса&nbsp;народов России"</span>
+        <span class="hidden xl:block w-1/4 text-xl font-semibold">Звучащая карта «Голоса&nbsp;народов России»</span>
         <span class="hidden xl:block w-[40%] text-xl font-semibold">цифровая платформа аудиосказок наязыках&nbsp;народов&nbsp;Российской&nbsp;Федерации.</span>
     </div>
 
@@ -31,7 +31,7 @@
 
         <div class="flex flex-col gap-y-4 xl:gap-y-10 col-span-1 xl:col-span-4 mt-6 xl:mt-0">
             <div class="p-4 xl:p-8 bg-[#D9D9D9]/20 rounded-2xl text-center xl:text-justify">
-                <span class="text-[15px] xl:text-xl font-light xl:font-semibold text-white text-center">Проект Цифровая платформа аудиосказок "Голоса народов России" реализуется при поддержке <a class="underline" href="https://vk.com/club205606768">Президентского фонда культурных инициатив.</a></span>
+                <span class="text-[15px] xl:text-xl font-light xl:font-semibold text-white text-center">Проект Цифровая платформа аудиосказок «Голоса народов России» реализуется при поддержке <a class="underline" href="https://vk.com/club205606768">Президентского фонда культурных инициатив.</a></span>
             </div>
 
             <div class="flex flex-col justify-center items-center xl:gap-y-6 rounded-2xl p-4 xl:p-10 border-2 border-[#EFEADE] text-base xl:text-[20px] font-semibold text-center">

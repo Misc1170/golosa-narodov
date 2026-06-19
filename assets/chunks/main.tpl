@@ -34,9 +34,9 @@
   <div
     class="flex flex-col items-center text-[15px] xl:text-[25px] text-white font-neris font-light"
     >
-    <div class="w-1/2 text-center">
+    <div class="w-2/3 xl:w-1/2 text-center">
       <p>Цифровая платформа аудиосказок:</p>
-      <p>"Голоса народов России"</p>
+      <p>«Голоса народов России»</p>
     </div>
   </div>
 </div>

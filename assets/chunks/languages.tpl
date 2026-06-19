@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center gap-x-4 xl:gap-x-8 text-[#FFB35B]">
+<div class="flex items-center justify-center gap-x-4 xl:gap-x-8 text-[#FFB35B] mb-4">
     <img class="w-[60px] h-[8px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
     <h1 class="text-[20px] xl:text-[50px] font-balkara">ЯЗЫКИ</h1>
     <img class="w-[60px] h-[8px] xl:w-[115px] xl:h-[15px]" src="/assets/images/bubles.png" alt="">
