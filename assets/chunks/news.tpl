@@ -10,6 +10,7 @@
         [[getImageList?
             &tvname=`news_list`
             &tpl=`newsItem`
+            &reverse=`1`
         ]]
     </div>
 
