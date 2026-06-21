@@ -76,7 +76,7 @@
         >
             <div class="flex flex-col flex-grow min-w-0 xl:mb-2 order-2 xl:order-1">
                 <h3 class="text-[13px] xl:text-[17px] font-semibold text-white xl:truncate">[[+translated_story_name]]</h3>
-                <span class="text-[10px] xl:text-[13px] lowercase tracking-wide xl:tracking-widest text-white font-light">
+                <span class="text-[10px] xl:text-[13px] lowercase text-white font-light">
                     сказка в переводе
                 </span>
             </div>
