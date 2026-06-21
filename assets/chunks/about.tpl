@@ -39,7 +39,7 @@
                     <img class="w-[27px] h-[27px] xl:w-[53px] xl:h-[53px]" src="/assets/images/flower-about.png" alt="">
                     <span class="text-white text-[15px] xl:text-xl font-light xl:font-semibold">Слушайте, сохраняйте и делитесь!</span>
                 </div>
-                <span class="text-[#FFB35B] text-[15px] xl:text-xl font-light xl:font-semibold">Пусть языки народов России<span class="hidden xl:inline">&nbsp;</span><span class="xl:hidden"> </span>зазвучат!</span>
+                <span class="text-[#FFB35B] text-[15px] xl:text-xl font-light xl:font-semibold">Пусть языки народов России<span class="hidden xl:inline">&nbsp;</span><span class="xl:hidden"> </span>звучат!</span>
             </div>
         </div>
     </div>
