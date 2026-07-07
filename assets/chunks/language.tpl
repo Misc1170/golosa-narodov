@@ -126,10 +126,36 @@
             const volumeCont = player.querySelector('[data-volume-cont]');
             const volumeBar = player.querySelector('[data-volume-bar]');
             const volumeProgress = player.querySelector('[data-volume-progress]');
+            const menuBtn = player.querySelector('[data-menu-btn]');
+            const infoPanel = player.querySelector('[data-info-panel]');
+            const infoBacking = player.querySelector('[data-info-backing]');
             const baseColor = playBtn.getAttribute('data-base-color');
             const darkBaseColor = baseColor.replace('/70', '');
 
             let isDraggingVolume = false;
+
+            // Плашка с описанием: показывается/скрывается по клику на три точки,
+            // при этом сама плашка лежит внутри той же колонки, что и полоса
+            // воспроизведения, поэтому автоматически сужается вместе с ней,
+            // когда появляется регулятор громкости. Отдельная подложка
+            // (data-info-backing) рисует рамку и скругление позади полосы
+            // воспроизведения (z-index ниже неё), чтобы скруглённые углы
+            // дорожки не перекрывались острыми углами плашки.
+            if (menuBtn && infoPanel) {
+                menuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = infoPanel.classList.contains('block');
+                    if (isOpen) {
+                        infoPanel.classList.replace('block', 'hidden');
+                        if (infoBacking) infoBacking.classList.replace('block', 'hidden');
+                        menuBtn.classList.remove('bg-[#D9D9D9]/20');
+                    } else {
+                        infoPanel.classList.replace('hidden', 'block');
+                        if (infoBacking) infoBacking.classList.replace('hidden', 'block');
+                        menuBtn.classList.add('bg-[#D9D9D9]/20');
+                    }
+                });
+            }
 
             const formatTime = (s) => {
                 if (!s || isNaN(s)) return '00:00';
