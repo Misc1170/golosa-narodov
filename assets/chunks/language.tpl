@@ -223,12 +223,12 @@
                     });
                     audio.play().catch(err => console.log("Ошибка запуска:", err));
                     if (typeof ym === 'function') {
-                        ym(110044907, 'reachGoal', 'audio_play', { story: player.dataset.storyTitle || '', type: player.dataset.storyLabel || '' });
+                        ym(110044907, 'reachGoal', 'audio_play', { source: 'audio_button', story: player.dataset.storyTitle || '', type: player.dataset.storyLabel || '' });
                     }
                 } else {
                     audio.pause();
                     if (typeof ym === 'function') {
-                        ym(110044907, 'reachGoal', 'audio_pause', { story: player.dataset.storyTitle || '', type: player.dataset.storyLabel || '' });
+                        ym(110044907, 'reachGoal', 'audio_pause', { source: 'audio_button', story: player.dataset.storyTitle || '', type: player.dataset.storyLabel || '' });
                     }
                 }
             });
@@ -433,15 +433,18 @@
                     if (firstBtn) firstBtn.click();
                     return;
                 }
+                const activePlayer = activeAudio.closest('[data-audio-root]');
+                const activeStory = activePlayer ? (activePlayer.dataset.storyTitle || '') : '';
+                const activeType = activePlayer ? (activePlayer.dataset.storyLabel || '') : '';
                 if (activeAudio.paused) {
                     activeAudio.play();
                     if (typeof ym === 'function') {
-                        ym(110044907, 'reachGoal', 'audio_play', { source: 'bottom_player' });
+                        ym(110044907, 'reachGoal', 'audio_play', { source: 'audio_button', story: activeStory, type: activeType });
                     }
                 } else {
                     activeAudio.pause();
                     if (typeof ym === 'function') {
-                        ym(110044907, 'reachGoal', 'audio_pause', { source: 'bottom_player' });
+                        ym(110044907, 'reachGoal', 'audio_pause', { source: 'audio_button', story: activeStory, type: activeType });
                     }
                 }
             });
