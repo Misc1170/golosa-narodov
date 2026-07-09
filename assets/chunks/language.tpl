@@ -41,6 +41,7 @@
     [[getImageList?
       &tvname=`audio_stories`
       &tpl=`audioStory`
+      &limit=`0`
     ]]
   </div>
 </div>
@@ -126,34 +127,43 @@
             const volumeCont = player.querySelector('[data-volume-cont]');
             const volumeBar = player.querySelector('[data-volume-bar]');
             const volumeProgress = player.querySelector('[data-volume-progress]');
-            const menuBtn = player.querySelector('[data-menu-btn]');
-            const infoPanel = player.querySelector('[data-info-panel]');
-            const infoBacking = player.querySelector('[data-info-backing]');
+            // Точки и плашка существуют в двух вариантах разметки — десктопный
+            // (внутри полосы воспроизведения, xl и выше) и мобильный (в одну
+            // строку с кнопкой play/pause и названием, ниже 1280px). Видимость
+            // каждого варианта уже управляется классами hidden/xl:hidden и
+            // max-xl:hidden, а открытие/закрытие плашки должно синхронно
+            // переключать оба варианта — поэтому здесь работаем со всеми
+            // найденными элементами сразу.
+            const menuBtns = Array.from(player.querySelectorAll('[data-menu-btn]'));
+            const infoPanels = Array.from(player.querySelectorAll('[data-info-panel]'));
+            const infoBackings = Array.from(player.querySelectorAll('[data-info-backing]'));
             const baseColor = playBtn.getAttribute('data-base-color');
             const darkBaseColor = baseColor.replace('/70', '');
 
             let isDraggingVolume = false;
 
             // Плашка с описанием: показывается/скрывается по клику на три точки,
-            // при этом сама плашка лежит внутри той же колонки, что и полоса
-            // воспроизведения, поэтому автоматически сужается вместе с ней,
-            // когда появляется регулятор громкости. Отдельная подложка
+            // при этом на десктопе сама плашка лежит внутри той же колонки, что
+            // и полоса воспроизведения, поэтому автоматически сужается вместе с
+            // ней, когда появляется регулятор громкости. Отдельная подложка
             // (data-info-backing) рисует рамку и скругление позади полосы
             // воспроизведения (z-index ниже неё), чтобы скруглённые углы
             // дорожки не перекрывались острыми углами плашки.
-            if (menuBtn && infoPanel) {
-                menuBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isOpen = infoPanel.classList.contains('block');
-                    if (isOpen) {
-                        infoPanel.classList.replace('block', 'hidden');
-                        if (infoBacking) infoBacking.classList.replace('block', 'hidden');
-                        menuBtn.classList.remove('bg-[#D9D9D9]/20');
-                    } else {
-                        infoPanel.classList.replace('hidden', 'block');
-                        if (infoBacking) infoBacking.classList.replace('hidden', 'block');
-                        menuBtn.classList.add('bg-[#D9D9D9]/20');
-                    }
+            if (menuBtns.length && infoPanels.length) {
+                menuBtns.forEach((menuBtn) => {
+                    menuBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const isOpen = infoPanels[0].classList.contains('block');
+                        if (isOpen) {
+                            infoPanels.forEach((panel) => panel.classList.replace('block', 'hidden'));
+                            infoBackings.forEach((backing) => backing.classList.replace('block', 'hidden'));
+                            menuBtns.forEach((btn) => btn.classList.remove('bg-[#D9D9D9]/20'));
+                        } else {
+                            infoPanels.forEach((panel) => panel.classList.replace('hidden', 'block'));
+                            infoBackings.forEach((backing) => backing.classList.replace('hidden', 'block'));
+                            menuBtns.forEach((btn) => btn.classList.add('bg-[#D9D9D9]/20'));
+                        }
+                    });
                 });
             }
 
@@ -212,8 +222,14 @@
                         }
                     });
                     audio.play().catch(err => console.log("Ошибка запуска:", err));
+                    if (typeof ym === 'function') {
+                        ym(110044907, 'reachGoal', 'audio_play', { story: player.dataset.storyTitle || '', type: player.dataset.storyLabel || '' });
+                    }
                 } else {
                     audio.pause();
+                    if (typeof ym === 'function') {
+                        ym(110044907, 'reachGoal', 'audio_pause', { story: player.dataset.storyTitle || '', type: player.dataset.storyLabel || '' });
+                    }
                 }
             });
 
@@ -417,8 +433,17 @@
                     if (firstBtn) firstBtn.click();
                     return;
                 }
-                if (activeAudio.paused) activeAudio.play();
-                else activeAudio.pause();
+                if (activeAudio.paused) {
+                    activeAudio.play();
+                    if (typeof ym === 'function') {
+                        ym(110044907, 'reachGoal', 'audio_play', { source: 'bottom_player' });
+                    }
+                } else {
+                    activeAudio.pause();
+                    if (typeof ym === 'function') {
+                        ym(110044907, 'reachGoal', 'audio_pause', { source: 'bottom_player' });
+                    }
+                }
             });
         }
 

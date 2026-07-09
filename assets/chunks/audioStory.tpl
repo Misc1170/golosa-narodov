@@ -15,7 +15,7 @@
     <div class="flex flex-col ml-0 min-[420px]:ml-10 xl:ml-0 gap-1 xl:gap-6 flex-grow min-w-0">
         <!-- ОРИГИНАЛЬНОЕ АУДИО -->
         <div
-            class="audio-container w-full flex flex-row items-center gap-3 xl:gap-0 xl:flex-col xl:items-stretch"
+            class="audio-container w-full flex flex-row flex-wrap items-center gap-3 xl:gap-0 xl:flex-col xl:items-stretch"
             data-audio-root
             data-story-title="[[+original_story_name]]"
             data-story-label="оригинальная сказка"
@@ -44,7 +44,7 @@
                 <div class="flex flex-col xl:flex-grow min-w-0 gap-0 xl:relative">
                     [[+original_story_description:striptags:strip:len:gt=`0`:then=`
                     <div
-                        class="hidden absolute inset-0 z-0 rounded-3xl pointer-events-none bg-[#EFEADE]/20"
+                        class="hidden max-xl:hidden absolute inset-0 z-0 rounded-3xl pointer-events-none bg-[#EFEADE]/20"
                         data-info-backing
                     ></div>
                     `:else=``]]
@@ -81,10 +81,10 @@
                     </div>
                     [[+original_story_description:striptags:strip:len:gt=`0`:then=`
                     <div
-                        class="hidden relative z-10 px-5 py-4 text-[12px] xl:text-[17px] text-white font-light text-justify"
+                        class="hidden max-xl:hidden relative z-10 px-5 py-4 text-[17px] text-white font-light text-justify"
                         data-info-panel
                     >
-                        [[+original_story_description]]
+                        [[+original_story_description:striptags]]
                     </div>
                     `:else=``]]
                 </div>
@@ -95,11 +95,31 @@
                     </div>
                 </div>
             </div>
+            [[+original_story_description:striptags:strip:len:gt=`0`:then=`
+            <button
+                type="button"
+                class="flex xl:hidden items-center justify-center w-9 h-9 rounded-full shrink-0 order-3 transition-colors duration-300"
+                data-menu-btn
+                aria-label="Подробнее об аудиозаписи"
+            >
+                <svg width="4" height="18" viewBox="0 0 4 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="2" cy="2" r="2" fill="#EFEADE"/>
+                    <circle cx="2" cy="9" r="2" fill="#EFEADE"/>
+                    <circle cx="2" cy="16" r="2" fill="#EFEADE"/>
+                </svg>
+            </button>
+            <div
+                class="hidden xl:hidden order-4 w-full mt-1 rounded-2xl bg-[#EFEADE]/20 px-4 py-3 text-[12px] text-white font-light text-justify"
+                data-info-panel
+            >
+                [[+original_story_description:striptags]]
+            </div>
+            `:else=``]]
         </div>
 
         <!-- ВТОРОЕ АУДИО (file_2) -->
         <div
-            class="audio-container w-full flex flex-row items-center gap-3 xl:gap-0 xl:flex-col xl:items-stretch"
+            class="audio-container w-full flex flex-row flex-wrap items-center gap-3 xl:gap-0 xl:flex-col xl:items-stretch"
             data-audio-root
             data-story-title="[[+translated_story_name]]"
             data-story-label="сказка в переводе"
@@ -110,7 +130,7 @@
                     сказка в переводе
                 </span>
             </div>
-            <div class="flex items-start h-full xl:h-auto w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-1 xl:order-2">
+            <div class="flex items-start w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-1 xl:order-2">
                 [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
                 <button
                     type="button"
@@ -128,7 +148,7 @@
                 <div class="flex flex-col xl:flex-grow min-w-0 gap-0 xl:relative">
                     [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
                     <div
-                        class="hidden absolute inset-0 z-0 rounded-3xl pointer-events-none bg-[#EFEADE]/20"
+                        class="hidden max-xl:hidden absolute inset-0 z-0 rounded-3xl pointer-events-none bg-[#EFEADE]/20"
                         data-info-backing
                     ></div>
                     `:else=``]]
@@ -144,8 +164,8 @@
                             >
                                 <div class="play-icon border-l-[10px] xl:border-l-[12px] border-l-[#0F212F] border-y-[7px] xl:border-y-[8px] border-y-transparent ml-0.5 xl:ml-1"></div>
                                 <div class="pause-icon hidden gap-1">
-                                    <div class="w-1.5 h-3.5 xl:h-4 bg-[#0F212F]"></div>
-                                    <div class="w-1.5 h-3.5 xl:h-4 bg-[#0F212F]"></div>
+                                    <div class="w-1 xl:w-1.5 h-3 xl:h-4 bg-[#0F212F]"></div>
+                                    <div class="w-1 xl:w-1.5 h-3 xl:h-4 bg-[#0F212F]"></div>
                                 </div>
                             </button>
                             <div class="w-[1px] h-full bg-[#0F212F]/50 hidden xl:block" data-divider></div>
@@ -165,10 +185,10 @@
                     </div>
                     [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
                     <div
-                        class="hidden relative z-10 px-5 py-4 text-[12px] xl:text-[17px] text-white font-light text-justify"
+                        class="hidden max-xl:hidden relative z-10 px-5 py-4 text-[17px] text-white font-light text-justify"
                         data-info-panel
                     >
-                        [[+translated_story_description]]
+                        [[+translated_story_description:striptags]]
                     </div>
                     `:else=``]]
                 </div>
@@ -179,6 +199,26 @@
                     </div>
                 </div>
             </div>
+            [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
+            <button
+                type="button"
+                class="flex xl:hidden items-center justify-center w-9 h-9 rounded-full shrink-0 order-3 transition-colors duration-300"
+                data-menu-btn
+                aria-label="Подробнее об аудиозаписи"
+            >
+                <svg width="4" height="18" viewBox="0 0 4 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="2" cy="2" r="2" fill="#EFEADE"/>
+                    <circle cx="2" cy="9" r="2" fill="#EFEADE"/>
+                    <circle cx="2" cy="16" r="2" fill="#EFEADE"/>
+                </svg>
+            </button>
+            <div
+                class="hidden xl:hidden order-4 w-full mt-1 rounded-2xl bg-[#EFEADE]/20 px-4 py-3 text-[12px] text-white font-light text-justify"
+                data-info-panel
+            >
+                [[+translated_story_description:striptags]]
+            </div>
+            `:else=``]]
         </div>
     </div>
 </div>
