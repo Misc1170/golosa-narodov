@@ -12,7 +12,7 @@
   <script type="module" src="http://localhost:5173/@vite/client"></script>
   <link rel="stylesheet" href="http://localhost:5173/assets/css/main.css">
 `:else=`
-  <link rel="stylesheet" href="/assets/css/main.min.css">
+  <link rel="stylesheet" href="/assets/css/main.min.css?v=c61bdd5d">
 `]]
 
   <!-- Yandex.Metrika counter -->
