@@ -27,7 +27,7 @@
                 </span>
             </div>
             <div class="flex items-start w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-1 xl:order-2">
-                [[+original_story_description:striptags:strip:len:gt=`0`:then=`
+                [[+original_story_description:strip:len:gt=`0`:then=`
                 <button
                     type="button"
                     class="hidden xl:flex items-center justify-center w-9 h-9 rounded-full shrink-0 mt-0.5 transition-colors duration-300"
@@ -42,7 +42,7 @@
                 </button>
                 `:else=``]]
                 <div class="flex flex-col xl:flex-grow min-w-0 gap-0 xl:relative">
-                    [[+original_story_description:striptags:strip:len:gt=`0`:then=`
+                    [[+original_story_description:strip:len:gt=`0`:then=`
                     <div
                         class="hidden max-xl:hidden absolute inset-0 z-0 rounded-3xl pointer-events-none bg-[#EFEADE]/20"
                         data-info-backing
@@ -79,12 +79,12 @@
                         </div>
                         <audio src="[[+original_story_file]]" data-main-audio preload="metadata"></audio>
                     </div>
-                    [[+original_story_description:striptags:strip:len:gt=`0`:then=`
+                    [[+original_story_description:strip:len:gt=`0`:then=`
                     <div
                         class="hidden max-xl:hidden relative z-10 px-5 py-4 text-[17px] text-white font-light text-justify"
                         data-info-panel
                     >
-                        [[+original_story_description:striptags]]
+                        [[+original_story_description]]
                     </div>
                     `:else=``]]
                 </div>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            [[+original_story_description:striptags:strip:len:gt=`0`:then=`
+            [[+original_story_description:strip:len:gt=`0`:then=`
             <button
                 type="button"
                 class="flex xl:hidden items-center justify-center w-9 h-9 rounded-full shrink-0 order-3 transition-colors duration-300"
@@ -112,7 +112,7 @@
                 class="hidden xl:hidden order-4 w-full mt-1 rounded-2xl bg-[#EFEADE]/20 px-4 py-3 text-[12px] text-white font-light text-justify"
                 data-info-panel
             >
-                [[+original_story_description:striptags]]
+                [[+original_story_description]]
             </div>
             `:else=``]]
         </div>
@@ -131,7 +131,7 @@
                 </span>
             </div>
             <div class="flex items-start w-auto xl:w-full transition-all duration-500 ease-in-out gap-4 shrink-0 order-1 xl:order-2">
-                [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
+                [[+translated_story_description:strip:len:gt=`0`:then=`
                 <button
                     type="button"
                     class="hidden xl:flex items-center justify-center w-9 h-9 rounded-full shrink-0 mt-0.5 transition-colors duration-300"
@@ -146,7 +146,7 @@
                 </button>
                 `:else=``]]
                 <div class="flex flex-col xl:flex-grow min-w-0 gap-0 xl:relative">
-                    [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
+                    [[+translated_story_description:strip:len:gt=`0`:then=`
                     <div
                         class="hidden max-xl:hidden absolute inset-0 z-0 rounded-3xl pointer-events-none bg-[#EFEADE]/20"
                         data-info-backing
@@ -183,12 +183,12 @@
                         </div>
                         <audio src="[[+translated_story_file]]" data-main-audio preload="metadata"></audio>
                     </div>
-                    [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
+                    [[+translated_story_description:strip:len:gt=`0`:then=`
                     <div
                         class="hidden max-xl:hidden relative z-10 px-5 py-4 text-[17px] text-white font-light text-justify"
                         data-info-panel
                     >
-                        [[+translated_story_description:striptags]]
+                        [[+translated_story_description]]
                     </div>
                     `:else=``]]
                 </div>
@@ -199,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            [[+translated_story_description:striptags:strip:len:gt=`0`:then=`
+            [[+translated_story_description:strip:len:gt=`0`:then=`
             <button
                 type="button"
                 class="flex xl:hidden items-center justify-center w-9 h-9 rounded-full shrink-0 order-3 transition-colors duration-300"
@@ -216,7 +216,7 @@
                 class="hidden xl:hidden order-4 w-full mt-1 rounded-2xl bg-[#EFEADE]/20 px-4 py-3 text-[12px] text-white font-light text-justify"
                 data-info-panel
             >
-                [[+translated_story_description:striptags]]
+                [[+translated_story_description]]
             </div>
             `:else=``]]
         </div>
